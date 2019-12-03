@@ -1,14 +1,7 @@
-.container {
-  display: flex;
-  justify-content: space-between;
-  max-width: 900px;
-  //padding-left: 10px;
-  //padding-right: 10px;
-  margin-right: auto;
-  margin-left: auto;
-}
+@import "./style/base";
 
 .headerBackground {
-  background-color: #4267B2;
-  border-bottom: 1px solid #29487d;
+  height: 45px;
+  background-color: $lightBlue;
+  border-bottom: 1px solid $darkBlue;
 }
