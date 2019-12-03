@@ -1,12 +1,13 @@
 import React from 'react';
+import HeaderContainer from "./common/navbar/NavbarContainer";
+import './style/_base.scss';
+import style from "./App.module.scss";
+import {connect} from "react-redux";
+import {compose} from "redux";
 // import Nav from './components/nav/Nav';
 // import LoginPage from './components/login/Login';
 // import Main from './components/main/Main';
 // import {Route, withRouter} from "react-router-dom";
-// import HeaderContainer from "./components/header/HeaderContainer";
-// import style from "./App.module.scss";
-// import {connect} from "react-redux";
-// import {compose} from "redux";
 // import {initializeApp} from "./redux/app-reducer";
 // import Preloader from "./components/common/Preloader/Preloader";
 //
@@ -61,6 +62,28 @@ import React from 'react';
 //   connect(mapStateToProps, {initializeApp}),
 // )(App);
 
-export default App = () => {
-  return <h1>Hello World</h1>
-}
+const App = React.memo(props => {
+
+    return <>
+      <div className={style.headerBackground}>
+        <div className={`container heightInherit`}>
+          <HeaderContainer/>
+        </div>
+      </div>
+      {/*<div className={style.container}>*/}
+        {/*<Nav/>*/}
+        {/*<Main/>*/}
+      {/*</div>*/}
+    </>
+});
+
+// const mapStateToProps = state => ({
+//   initialized: state.app.initialized
+// });
+
+export default compose(
+//   withRouter,
+//   connect(mapStateToProps, {initializeApp}),
+)(App);
+
+// export default App;
