@@ -1,0 +1,71 @@
+@import "../../../style/vars";
+
+.Block {
+  background-color: $white;
+  border: 1px solid rgba($black, .25);
+  border-radius: 2px;
+  height: fit-content;
+}
+
+.Intro {
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  margin-right: 15px;
+  padding: 10px;
+}
+
+.IntroDesc {
+  position: relative;
+  font-size: 1.2rem;
+  margin: 5px 0 5px 25px;
+
+  &:first-child {
+    font-size: 1.6rem;
+    margin: 5px 10px 5px 35px;
+  }
+
+  &Title::before {
+    display: block;
+    position: absolute;
+    left: -35px;
+    top: 0;
+    content: url("../../../images/globe.svg");
+    width: 22px;
+    height: 22px;
+  }
+
+  &Info::before {
+    display: block;
+    position: absolute;
+    left: -25px;
+    top: 2px;
+    content: url("../../../images/info.svg");
+    width: 16px;
+    height: 16px;
+  }
+
+  &IsWork::before {
+    display: block;
+    position: absolute;
+    left: -25px;
+    top: 2px;
+    content: url("../../../images/computer.svg");
+    width: 16px;
+    height: 16px;
+  }
+
+  &Work::before {
+    display: block;
+    position: absolute;
+    left: -25px;
+    top: 2px;
+    content: url("../../../images/task.svg");
+    width: 16px;
+    height: 16px;
+  }
+
+  &:last-child {
+    margin: 5px 0;
+  }
+}

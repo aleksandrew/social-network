@@ -1,0 +1,11 @@
+@import "../../style/vars";
+
+.Main {
+  z-index: 5;
+}
+
+.Bottom {
+  display: flex;
+  justify-content: space-between;
+  background-color: transparent;
+}

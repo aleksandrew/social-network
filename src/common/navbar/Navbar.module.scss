@@ -1,16 +1,108 @@
+@import "../../style/vars";
+
 .header {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: inherit;
+  z-index: 10;
+  margin-bottom: 70px;
 }
 
 .logo {
+  display: flex;
   width: 25px;
   height: 25px;
 }
 
-.loginBlock {
-  float: right;
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.login {
-  color: white;
+.search {
+  display: flex;
+  border: 1px solid $black;
+  border-radius: 3px;
+  width: 440px;
+  min-height: 25px;
+
+  &Field {
+    width: 395px;
+    border-radius: 3px 0 0 3px;
+    background-color: $white;
+    border-color: transparent;
+
+    &:focus {
+      outline: transparent;
+    }
+  }
+
+  &Button {
+    width: 45px;
+    border-radius: 0 3px 3px 0;
+    background-color: $lightGrey;
+    border-color: transparent;
+
+    &::before {
+      content: url("../../images/magnifier.svg");
+    }
+  }
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  height: 25px;
+  margin-left: 10px;
+}
+
+.item {
+  position: relative;
+  color: $white;
+  font-weight: bold;
+  width: inherit;
+  height: inherit;
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 4px;
+    height: 18px;
+    width: 1px;
+    background-color: rgba($black, .1);
+  }
+
+  &:hover, &:focus, &:active {
+    border-radius: 2px;
+    background-color: rgba($black, .1);
+    outline: none;
+
+    .link {
+    color: inherit;
+    }
+  }
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  color: $white;
+  font-weight: bold;
+  white-space: nowrap;
+  letter-spacing: .5px;
+  height: inherit;
+  padding: 0 10px;
+}
+
+.linkProfile {
+  display: flex;
+}
+
+.linkProfileText {
+  margin-left: 10px;
 }

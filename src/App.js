@@ -1,89 +1,57 @@
 import React from 'react';
+import LoginPage from './pages/login/Login';
 import HeaderContainer from "./common/navbar/NavbarContainer";
+import ProfileContainer from "./pages/profile/ProfileContainer";
+import UsersContainer from "./pages/users/UsersContainer";
 import './style/_base.scss';
 import style from "./App.module.scss";
 import {connect} from "react-redux";
 import {compose} from "redux";
-// import Nav from './components/nav/Nav';
-// import LoginPage from './components/login/Login';
-// import Main from './components/main/Main';
-// import {Route, withRouter} from "react-router-dom";
-// import {initializeApp} from "./redux/app-reducer";
-// import Preloader from "./components/common/Preloader/Preloader";
-//
-//
-// class App extends React.Component {
-//
-//   componentDidMount() {
-//     this.props.initializeApp();
-//   }
-//
-//   render() {
-//
-//     if (!this.props.initialized) {
-//
-//       return <Preloader/>
-//     }
-//
-//     else if (window.location.pathname === '/login') {
-//
-//       return <div>
-//         <div className={style.headerBackground}>
-//           <div className={style.container}>
-//             <HeaderContainer/>
-//           </div>
-//         </div>
-//         <div className={style.container}>
-//           <Route path='/login' component={LoginPage}/>
-//         </div>
-//       </div>
-//     }
-//
-//     return <div>
-//       <div className={style.headerBackground}>
-//         <div className={style.container}>
-//           <HeaderContainer/>
-//         </div>
-//       </div>
-//       <div className={style.container}>
-//         <Nav/>
-//         <Main/>
-//       </div>
-//     </div>
-//   };
-// }
-//
-// const mapStateToProps = state => ({
-//   initialized: state.app.initialized
-// });
-//
-// export default compose(
-//   withRouter,
-//   connect(mapStateToProps, {initializeApp}),
-// )(App);
+import {Route, withRouter} from "react-router-dom";
+import {initializeApp} from "./redux/app-reducer";
+import Preloader from "./components/preloader/Preloader";
 
-const App = React.memo(props => {
+class App extends React.PureComponent {
 
-    return <>
-      <div className={style.headerBackground}>
-        <div className={`container heightInherit`}>
+  componentDidMount() {
+    this.props.initializeApp();
+  }
+
+  render() {
+
+    if (!this.props.initialized) {
+      return <Preloader/>
+    }
+
+    else if (window.location.pathname === '/login') {
+
+      return <>
+        <div className={`${style.headerBackground}`}>
           <HeaderContainer/>
         </div>
+        <div className={`container`}>
+          <Route path='/login' component={LoginPage}/>
+        </div>
+      </>
+    }
+
+    return <>
+      <div className={`${style.headerBackground}`}>
+        <HeaderContainer/>
       </div>
-      {/*<div className={style.container}>*/}
-        {/*<Nav/>*/}
-        {/*<Main/>*/}
-      {/*</div>*/}
+      <div className={`container`}>
+        <Route path='/profile/:userId?' component={ProfileContainer}/>
+        <Route path='/users' component={UsersContainer} />
+      </div>
     </>
+  };
+}
+
+const mapStateToProps = state => ({
+  initialized: state.app.initialized
 });
 
-// const mapStateToProps = state => ({
-//   initialized: state.app.initialized
-// });
-
 export default compose(
-//   withRouter,
-//   connect(mapStateToProps, {initializeApp}),
+  withRouter,
+  connect(mapStateToProps, {initializeApp}),
 )(App);
-
-// export default App;

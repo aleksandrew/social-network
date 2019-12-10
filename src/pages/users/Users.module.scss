@@ -1,0 +1,189 @@
+@import "../../style/vars";
+
+.userPhoto {
+  width: 100px;
+  height: 100px;
+}
+
+.Users {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.Block {
+  background-color: $white;
+  border-color: $lightGrey;
+  border-radius: 3px;
+  border-style: solid;
+  border-width: 1px 1px 1px;
+}
+
+.PossibleAcquaintances {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  //max-width: 700px;
+  width: 700px;
+  margin-top: 15px;
+  //padding: 10px;
+}
+
+.Header {
+  height: 50px;
+  position: relative;
+
+  &::after {
+    display: block;
+    content: "";
+    position: absolute;
+    background-color: rgba($black, .25);
+    bottom: 0;
+    height: 1px;
+    width: 100%;
+  }
+}
+
+.HeaderTitle {
+  font-size: 1.6rem;
+  text-transform: capitalize;
+  padding: 0 15px;
+  line-height: 3;
+}
+
+.List {
+  padding: 0 20px 10px;
+}
+
+.Item {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  height: 85px;
+  position: relative;
+
+  &::after {
+    display: block;
+    content: "";
+    position: absolute;
+    background-color: rgba($black, .25);
+    bottom: 0;
+    height: 1px;
+    width: 100%;
+  }
+}
+
+.Info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Photos {
+  width: 75px;
+  height: 75px;
+}
+
+.Img {
+  border-radius: 0;
+}
+
+.Title {
+  padding-left: 10px;
+}
+
+.Username {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: $darkBlue;
+  word-break: break-word;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.Status {
+  font-size: 1.4rem;
+}
+
+.Keyboard {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.Button {
+  margin-right: 5px;
+  padding-left: 30px;
+  background-color: $lightBlue;
+
+  &:hover {
+    background-color: $darkBlue;
+  }
+}
+
+.Follow {
+  position: relative;
+
+  &::before {
+    display: block;
+    position: absolute;
+    top: 3px;
+    left: 10px;
+    content: url("../../images/follow.svg");
+    width: 15px;
+    height: 15px;
+  }
+
+  &:hover {
+    background-color: $darkBlue;
+  }
+}
+
+.Remove {
+  background-color: $lightGrey1;
+  border: 1px solid $grey;
+  color: $darkGrey;
+
+  &:hover {
+    background-color: rgba($grey, .5);
+    color: $darkGrey;
+  }
+}
+
+.Follow {
+  position: relative;
+
+  &::before {
+    display: block;
+    position: absolute;
+    top: 3px;
+    left: 10px;
+    content: url("../../images/follow.svg");
+    width: 15px;
+    height: 15px;
+  }
+
+  &:hover {
+    background-color: $darkBlue;
+  }
+}
+
+.Unfollow {
+  position: relative;
+
+  &::before {
+    display: block;
+    position: absolute;
+    top: 3px;
+    left: 10px;
+    content: url("../../images/unfollow.svg");
+    width: 15px;
+    height: 15px;
+  }
+
+  &:hover {
+    background-color: $darkBlue;
+  }
+}

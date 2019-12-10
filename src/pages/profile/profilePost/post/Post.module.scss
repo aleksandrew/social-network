@@ -1,0 +1,215 @@
+@import "../../../../style/vars";
+@import "../ProfilePost.module";
+
+.FieldPost {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.FieldPostKeyboard {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  min-height: 45px;
+}
+
+.FieldPostLeft {
+  display: flex;
+  align-items: center;
+}
+
+.FieldPostAvaBorder {
+  margin-right: 10px;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba($black, .5);
+  border-radius: 50%;
+}
+
+.FieldPostData {
+  display: flex;
+  flex-direction: column;
+}
+
+.FieldPostNameAuthor {
+  font-size: 1.4rem;
+}
+
+.FieldPostDateCreated {
+  color: $darkGrey;
+  font-size: 1.2rem;
+}
+
+.FieldPostData {
+  display: flex;
+  flex-direction: column;
+}
+
+.FieldPostRemove {
+  background-color: transparent;
+  border: none;
+  font-size: 3rem;
+  transition: all .3s ease;
+
+  &:hover {
+    color: rgba($primary, .5);
+    transition: all .3s ease;
+  }
+
+  &:active, &:focus {
+    outline: none;
+  }
+}
+
+.FieldPostDesc {
+  font-size: 2.4rem;
+  text-align: justify;
+  margin-bottom: 10px;
+
+  transition: all .3s ease;
+}
+
+.FieldPostDescUnderline {
+  &::after {
+    display: block;
+    content: "";
+    position: relative;
+    margin: 0 auto;
+    background-color: rgba($black, .25);
+    bottom: -10px;
+    height: 1px;
+    width: 95%;
+
+    transition: all .3s ease;
+
+  }
+}
+
+.FieldPostDescLike {
+  position: relative;
+  font-size: 1.3rem;
+  line-height: 3;
+  padding-left: 25px;
+
+  &::before {
+    display: block;
+    position: absolute;
+    content: url("../../../../images/onLike.svg");
+    left: 0;
+    top: 5px;
+    height: 20px;
+    width: 20px;
+  }
+}
+
+.FieldPostInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  min-height: 60px;
+
+  &::after {
+    display: block;
+    content: "";
+    position: absolute;
+    background-color: rgba($black, .25);
+    top: 0;
+    height: 1px;
+    width: 100%;
+  }
+}
+
+.FieldPostInfoLike {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 20%;
+  min-height: 40px;
+  padding-left: 40px;
+  font-size: 2rem;
+  background-color: transparent;
+  border: none;
+  position: relative;
+
+  transition: all .3s ease;
+
+  &:hover {
+    background-color: $grey;
+    transition: all .3s ease;
+  }
+
+  &:active, &:focus {
+    outline: none;
+  }
+}
+
+.FieldPostInfoLikeFalse {
+  color: $darkGrey;
+}
+
+.FieldPostInfoLikeTrue {
+  color: $turquoise;
+}
+
+.FieldPostInfoHandLike {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 40px;
+  min-height: 40px;
+  background-color: transparent;
+  border: none;
+
+  transition: all .3s ease;
+
+  &:active, &:focus {
+    outline: none;
+  }
+}
+
+.FieldPostInfoHandLikeFalse {
+  background: url("../../../../images/unlike.svg") center center no-repeat transparent;
+}
+
+.FieldPostInfoHandLikeTrue {
+  background: url("../../../../images/like.svg") center center no-repeat transparent;
+
+  &:hover {
+  animation-name: hand;
+  animation-duration: .5s;
+  animation-timing-function: linear;
+  animation-play-state: inherit;
+
+  @keyframes hand {
+    0% {
+      transform: rotate3d(0, 0, 1, 0deg)
+
+    }
+    35% {
+      transform: rotate3d(0, 0, 1, 25deg)
+
+    }
+    50% {
+      transform: rotate3d(0, 0, 1, -10deg)
+
+    }
+    70% {
+      transform: rotate3d(0, 0, 1, -20deg)
+
+    }
+    85% {
+      transform: rotate3d(0, 0, 1, -25deg)
+
+    }
+    100% {
+      transform: rotate3d(0, 0, 1, 0deg)
+    }
+  }
+  }
+}

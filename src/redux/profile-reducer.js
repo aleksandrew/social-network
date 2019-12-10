@@ -1,36 +1,49 @@
 import {profileAPI} from "../api/api";
+import {data} from "../utils/time";
 
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const ADD_POST = 'ADD_POST';
+const REMOVE_POST = 'REMOVE_POST';
+const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_STATUS = 'SET_STATUS';
+const SET_LIKE = 'SET_LIKE';
 
 const initialState = {
   postData: [
-    {id: 1, like: 23, post: 'Lorem ipsum dolor sit amet.'},
-    {id: 2, like: 35, post: 'Lorem ipsum dolor sit.'},
-    {id: 3, like: 60, post: 'Lorem ipsum dolor.'},
-    {id: 4, like: 1, post: 'Lorem ipsum.'},
-    {id: 5, like: 5, post: 'Lorem.'}
+    {id: 5, like: 0, youselfLike: false, post: 'Lorem ipsum dolor sit amet.', date: {date: '15.10.2019', time: '17:15'}},
+    {id: 4, like: 1, youselfLike: false, post: 'Lorem ipsum dolor sit.', date: {date: '15.10.2019', time: '17:15'}},
+    {id: 3, like: 60, youselfLike: false, post: 'Lorem ipsum dolor.', date: {date: '15.10.2019', time: '17:15'}},
+    {id: 2, like: 0, youselfLike: true, post: 'Lorem ipsum.', date: {date: '15.10.2019', time: '17:15'}},
+    {id: 1, like: 23, youselfLike: true, post: 'Lorem.', date: {date: '15.10.2019', time: '17:15'}}
   ],
+  isFetching: false,
   profile: null,
-  status: "",
+  status: '',
 };
 
 const profileReducer = (state = initialState, action) => {
-
   switch (action.type) {
     case ADD_POST:
+
       const newPost = {
         id: state.postData.length + 1,
+        like: 0,
+        youselfLike: false,
         post: action.newPostBody,
-        like: 0
+        date: {date: data.getDate(), time: data.getTime()}
       };
 
       return {
         ...state,
-        newPostText: '',
-        postData: [...state.postData, newPost]
+        postText: '',
+        postData: [newPost, ...state.postData]
+      };
+
+    case REMOVE_POST:
+
+      return {
+        ...state,
+        postData: state.postData.filter(post => post.id !== action.idPost)
       };
 
     case UPDATE_NEW_POST_TEXT:
@@ -54,13 +67,31 @@ const profileReducer = (state = initialState, action) => {
         profile: action.profile
       };
 
+    case SET_LIKE:
+
+      return {
+        ...state,
+        postData: state.postData.map(post => {
+          if (post.youselfLike && post.id === action.idPost) {
+            return {...post, youselfLike: false }
+          } else if (!post.youselfLike && post.id === action.idPost) {
+            return {...post, youselfLike: true }
+          }
+
+          return {...post}
+        })
+
+      };
+
     default:
       return state;
   }
 };
 
 // action creater
-export const addPostActionCreator = newPostBody => ({type: ADD_POST, newPostBody});
+export const addPost = newPostBody => ({type: ADD_POST, newPostBody});
+export const removePost = idPost => ({type: REMOVE_POST, idPost});
+export const setLike = idPost => ({type: SET_LIKE, idPost});
 export const setUserProfile = profile => ({type: SET_USER_PROFILE, profile});
 export const setStatus = status => ({type: SET_STATUS, status});
 
