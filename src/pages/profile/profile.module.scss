@@ -1,0 +1,19 @@
+@import "../../style/vars";
+
+.Main {
+  padding-top: 45px;
+  z-index: 5;
+}
+
+.Bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: transparent;
+  @include transition;
+
+  @media screen and (min-width: 776px) {
+    flex-direction: row;
+    @include transition;
+  }
+}

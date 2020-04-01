@@ -1,0 +1,273 @@
+@import "../../style/vars";
+
+.formSummuryError {
+  color: red;
+  font-weight: bold;
+}
+
+.topBlock {
+  padding: 95px 0 40px;
+  background-color: $lightGrey;
+
+  @media screen and (min-width: 776px) {
+    padding: 100px 0 90px;
+  }
+}
+
+.loginBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @media screen and (min-width: 776px) {
+    flex-direction: row;
+  }
+}
+
+.loginBlockDisable {
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.logo {
+  width: 200px;
+  height: 70px;
+  background-image: url("../../images/icon/logo.svg");
+  margin: 0 auto 10px auto;
+
+  @media screen and (min-width: 776px) {
+    margin: 0 0 10px 0;
+  }
+}
+
+.title {
+  font-size: 3.2rem;
+  line-height: 1.5;
+  font-weight: bolder;
+}
+
+.desc {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  color: $darkGrey;
+  margin-bottom: 15px;
+}
+
+.list {
+  display: flex;
+  flex-direction: row;
+}
+
+.item {
+  padding: 0;
+  margin-right: 20px;
+  background-color: transparent;
+  @include transition;
+
+  &:hover {
+    background-color: transparent;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    @include transition;
+  }
+
+  &Block {
+    width: 160px;
+    height: 205px;
+    color: $darkGrey;
+    text-align: center;
+    font-size: 2rem;
+    line-height: 2.3;
+    font-weight: 500;
+    border-radius: 5px;
+
+    &Desc {
+      background-color: $white;
+      padding: 3px 5px;
+      overflow: hidden;
+      border-radius: 0 0 5px 5px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    &__add {
+      color: $lightBlue;
+      font-weight: 400;
+    }
+  }
+}
+
+.itemAddBlock {
+  width: 160px;
+  height: 160px;
+  background: url("../../images/icon/plus.svg") $lightGrey1 center center no-repeat;
+  border-radius: 5px 5px 0 0;
+  background-size: 50px 50px;
+}
+
+.item__add {
+  position: relative;
+  top: -2px;
+  border: 1px solid $grey;
+  border-radius: 5px;
+}
+
+.blockForm {
+  display: flex;
+  flex-direction: column;
+  background-color: $white;
+  border: 1px solid rgba($black, .25);
+  border-radius: 10px;
+  margin: 40px 0 50px;
+  max-height: 350px;
+  min-width: 300px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+
+  @media screen and (min-width: 480px) {
+    min-width: 400px;
+  }
+}
+
+.formInput {
+  width: 100%;
+  border: 1px solid $grey;
+  border-radius: 5px;
+  font-size: 1.7rem;
+  padding: 15px;
+  font-weight: 400;
+  margin-bottom: 15px;
+
+  &Modal {
+    font-size: 1.2rem;
+    padding: 8px;
+    border-radius: 0;
+  }
+}
+
+.checkbox {
+  position: relative;
+  margin-right: 5px;
+  width: 15px;
+  height: 15px;
+
+  &Label {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    color: $darkGrey;
+    padding-left: 15px;
+    margin-bottom: 15px;
+  }
+}
+
+.formBtn {
+  background-color: $turquoise;
+  width: 100%;
+  border-radius: 5px;
+  padding: 5px 0;
+  font-size: 2rem;
+  margin-bottom: 30px;
+
+  &Modal {
+    background-color: $darkBlue;
+    font-size: 1.2rem;
+    padding: 8px;
+    border-radius: 0;
+    margin-bottom: 15px;
+  }
+}
+
+.formLine {
+  position: relative;
+
+  &::after {
+    display: block;
+    content: "";
+    position: absolute;
+    background-color: rgba($black, .25);
+    bottom: 0;
+    height: 1px;
+    width: 100%;
+  }
+}
+
+.logBtn {
+  align-self: center;
+  background-color: $greenyellow;
+  border-radius: 5px;
+  padding: 5px 15px;
+  font-size: 2rem;
+  margin: 30px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba($black, .25);
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  top: 40%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  background-color: $white;
+  padding: 20px;
+  border: 1px solid $darkGrey;
+
+  &:active, &:focus {
+    outline: none;
+  }
+
+  &__account {
+    height: 420px;
+  }
+
+  &Title {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 15px;
+
+    &__account {
+      margin-top: 10px;
+      font-weight: normal;
+    }
+  }
+
+  &Close {
+    position: absolute;
+    border: none;
+    font-size: 3rem;
+    transition: all .3s ease;
+    background-color: transparent;
+    right: 0;
+    top: 0;
+
+    &:hover {
+      color: rgba($primary, .5);
+      transition: all .3s ease;
+    }
+
+    &:active, &:focus {
+      outline: none;
+    }
+  }
+
+  &Link {
+    font-size: 1.3rem;
+    text-align: center;
+    margin-top: 10px;
+  }
+}
+
+.avatar {
+  align-self: center;
+}

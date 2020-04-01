@@ -1,0 +1,30 @@
+@import "../../style/vars";
+
+.formGroup {
+  display: flex;
+  align-items: center;
+  flex: none;
+  margin: 0;
+
+  @media screen and (min-width: 480px) {
+    flex: 200px 1 1;
+  }
+}
+
+.defaultLabel {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  color: $darkGrey;
+  padding-left: 15px;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.defaultInput {
+  position: relative;
+  margin-right: 5px;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}

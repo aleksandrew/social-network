@@ -1,0 +1,33 @@
+@import "../../style/vars";
+
+.list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.pages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  width: 25px;
+  height: 25px;
+  color: $white;
+  cursor: pointer;
+
+  background-color: $lightBlue;
+
+  &:hover {
+    background-color: $darkBlue;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.selectedPage {
+  background-color: $darkBlue;
+}

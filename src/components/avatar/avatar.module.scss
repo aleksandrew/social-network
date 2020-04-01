@@ -1,0 +1,9 @@
+@import "../../style/vars";
+
+.img img {
+  background-color: $grey;
+}
+
+.imgBorderRadius img {
+  border-radius: 50%;
+}

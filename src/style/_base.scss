@@ -12,11 +12,11 @@ html {
   -webkit-overflow-scrolling: touch;
   -webkit-text-size-adjust: none;
 
-  font-size: 50%; // 8px
+    font-size: 50%; // 8px
 
-  @media screen and (min-width: 480px) {
-    font-size: 56.25%; // 9px
-  }
+    @media screen and (min-width: 480px) {
+      font-size: 56.25%; // 9px
+    }
 
   @media screen and (min-width: 768px) {
     font-size: 56.25%; // 9px
@@ -52,6 +52,20 @@ body {
   textarea:required:valid {
     color: #666;
   }
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.content {
+  flex: 1 0 auto;
+}
+
+.footer {
+  flex: 0 0 auto;
 }
 
 a {
@@ -107,12 +121,13 @@ img {
   color: $white;
   border: none;
   border-radius: 3px;
-
-  transition: all .3s ease;
+  background-color: $darkBlue;
+  @include transition;
 
   &:hover {
     color: $white;
-    transition: all .3s ease;
+    background-color: $lightBlue;
+    @include transition;
   }
 
   &:active, &:focus {
@@ -120,3 +135,12 @@ img {
   }
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.block {
+  background-color: $white;
+  border: 1px solid rgba($black, .25);
+  border-radius: 2px;
+}

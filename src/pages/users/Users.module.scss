@@ -1,32 +1,24 @@
 @import "../../style/vars";
 
-.userPhoto {
-  width: 100px;
-  height: 100px;
-}
-
 .Users {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  margin-bottom: 15px;
+  padding-top: 45px;
 }
 
-.Block {
-  background-color: $white;
-  border-color: $lightGrey;
-  border-radius: 3px;
-  border-style: solid;
-  border-width: 1px 1px 1px;
+.userPhoto {
+  width: 100px;
+  height: 100px;
 }
 
 .PossibleAcquaintances {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  //max-width: 700px;
   width: 700px;
   margin-top: 15px;
-  //padding: 10px;
 }
 
 .Header {
@@ -57,10 +49,14 @@
 
 .Item {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   margin: 10px 0;
-  height: 85px;
   position: relative;
+
+  @media screen and (min-width: 480px) {
+    flex-direction: row;
+  }
 
   &::after {
     display: block;
@@ -75,8 +71,12 @@
 
 .Info {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
+
+  @media screen and (min-width: 480px) {
+    justify-content: space-between;
+  }
 }
 
 .Photos {
@@ -111,6 +111,12 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  padding: 10px 0;
+
+  @media screen and (min-width: 480px) {
+    padding: 0;
+  }
+
 }
 
 .Button {
@@ -131,7 +137,7 @@
     position: absolute;
     top: 3px;
     left: 10px;
-    content: url("../../images/follow.svg");
+    content: url("../../images/icon/follow.svg");
     width: 15px;
     height: 15px;
   }
@@ -160,7 +166,7 @@
     position: absolute;
     top: 3px;
     left: 10px;
-    content: url("../../images/follow.svg");
+    content: url("../../images/icon/follow.svg");
     width: 15px;
     height: 15px;
   }
@@ -178,7 +184,7 @@
     position: absolute;
     top: 3px;
     left: 10px;
-    content: url("../../images/unfollow.svg");
+    content: url("../../images/icon/unfollow.svg");
     width: 15px;
     height: 15px;
   }
@@ -186,4 +192,8 @@
   &:hover {
     background-color: $darkBlue;
   }
+}
+
+.selectedPages {
+  background-color: $darkBlue;
 }

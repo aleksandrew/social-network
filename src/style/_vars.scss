@@ -3,6 +3,7 @@ $default-font: "Arial";
 $primary: #1c1e21;
 
 $black: #000;
+$greenyellow: #42B72A;
 $white: #fff;
 $darkRed: #B21212;
 $lightRed: #FF0000;
@@ -14,4 +15,9 @@ $darkGrey: #616770;
 $lightBlue: #4267B2;
 $darkBlue: #29487d;
 $turquoise: #1967F6;
+$lightCyan: #EDF2FA;
 $cyan: #9cb4d8;
+
+@mixin transition {
+  transition: all .3s ease;
+}
