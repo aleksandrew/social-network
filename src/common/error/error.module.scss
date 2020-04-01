@@ -1,0 +1,35 @@
+@import "../../style/vars";
+
+.error {
+  background-color: $white;
+  padding-top: 45px;
+}
+
+.errorContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 5px;
+  height: 90vh;
+}
+
+.errorImage {
+  width: 270px;
+  object-fit: cover;
+}
+
+.errorDesc {
+  font-size: 1.5rem;
+}
+
+.errorItem {
+  color: $lightBlue;
+  cursor: pointer;
+  @include transition;
+
+  &:hover {
+    color: $darkBlue;
+    @include transition;
+  }
+}

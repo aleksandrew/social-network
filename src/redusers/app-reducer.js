@@ -1,0 +1,36 @@
+// outsource dependencies
+
+// local dependencies
+import { APP } from '../constans/types';
+
+const initialState = {
+    initialized: false,
+    errorMessages: null,
+};
+
+export const selector = (state) => state.app;
+
+const appReducer = (state = initialState, action) => {
+    switch (action.type) {
+        case APP.INITIALIZED_SUCCESS:
+
+            return {
+                ...state,
+                initialized: true,
+            };
+
+        case APP.SET_ERROR_MESSAGES: {
+            const { messages } = action;
+
+            return {
+                ...state,
+                errorMessages: messages,
+            };
+        }
+
+        default:
+            return state;
+    }
+};
+
+export default appReducer;

@@ -1,0 +1,161 @@
+@import "../../../style/vars";
+
+.Block {
+  background-color: $white;
+  border: 1px solid rgba($black, .25);
+  border-radius: 2px;
+  height: fit-content;
+}
+
+.Intro {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 25vw;
+  margin: 0 0 20px 0;
+  padding: 10px;
+  @include transition;
+
+  @media screen and (min-width: 776px) {
+    margin: 0 15px 0 0;
+    @include transition;
+  }
+
+  @media screen and (min-width: 992px) {
+    flex-basis: 20vw;
+    @include transition;
+  }
+}
+
+.IntroDesc {
+  position: relative;
+  font-size: 1.6rem;
+  margin: 5px 0 5px 25px;
+  @include transition;
+
+  @media screen and (min-width: 776px) {
+    font-size: 1.2rem;
+    @include transition;
+  }
+
+  &:first-child {
+    font-size: 2rem;
+    margin: 5px 10px 5px 35px;
+    @include transition;
+
+    @media screen and (min-width: 776px) {
+      font-size: 1.6rem;
+      @include transition;
+    }
+  }
+
+  &Title::before {
+    display: block;
+    position: absolute;
+    left: -35px;
+    top: 0;
+    content: url("../../../images/icon/globe.svg");
+    width: 22px;
+    height: 22px;
+  }
+
+  &Info::before {
+    display: block;
+    position: absolute;
+    left: -25px;
+    top: 2px;
+    content: url("../../../images/icon/info.svg");
+    width: 16px;
+    height: 16px;
+  }
+
+  &IsWork::before {
+    display: block;
+    position: absolute;
+    left: -25px;
+    top: 2px;
+    content: url("../../../images/icon/computer.svg");
+    width: 16px;
+    height: 16px;
+  }
+
+  &Work::before {
+    display: block;
+    position: absolute;
+    left: -25px;
+    top: 2px;
+    content: url("../../../images/icon/task.svg");
+    width: 16px;
+    height: 16px;
+  }
+
+  //
+
+  &Fb::before {
+    display: block;
+    content: url("../../../images/social/facebook.svg");
+    width: 40px;
+    height: 40px;
+  }
+
+  &Tw::before {
+    display: block;
+    content: url("../../../images/social/twitter.svg");
+    width: 40px;
+    height: 40px;
+  }
+
+  &Gh::before {
+    display: block;
+    content: url("../../../images/social/github.svg");
+    width: 40px;
+    height: 40px;
+  }
+
+  &Inst::before {
+    display: block;
+    content: url("../../../images/social/instagram.svg");
+    width: 40px;
+    height: 40px;
+  }
+
+  &Link::before {
+    display: block;
+    content: url("../../../images/social/mainlink.svg");
+    width: 40px;
+    height: 40px;
+  }
+
+  &Vk::before {
+    display: block;
+    content: url("../../../images/social/vkontakte.svg");
+    width: 40px;
+    height: 40px;
+  }
+
+  &Web::before {
+    display: block;
+    content: url("../../../images/social/website.svg");
+    width: 40px;
+    height: 40px;
+  }
+
+  &Yb::before {
+    display: block;
+    content: url("../../../images/social/youtobe.svg");
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.contactList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.contactItem {
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+  flex-basis: 40px;
+}

@@ -1,0 +1,224 @@
+@import "../../style/vars";
+
+.headerContainer {
+  height: 45px;
+  padding: 0 30px;
+  background-color: $lightBlue;
+  border-bottom: 1px solid $darkBlue;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  @include transition;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  height: inherit;
+  z-index: 100;
+
+  &Alert {
+    display: block;
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 44px;
+    padding: 10px;
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: bold;
+    margin: 0 auto;
+    width: 100%;
+    background: $white;
+    border: 1px solid $darkGrey;
+    border-top-color: $lightBlue;
+    z-index: 1;
+    @include transition;
+
+    @media screen and (min-width: 480px) {
+      width: auto;
+      text-align: left;
+      @include transition;
+    }
+
+    &Collapsed {
+      top: 250px;
+      border-top-color: $darkGrey;
+      @include transition;
+
+      @media screen and (min-width: 480px) {
+        top: 44px;
+        @include transition;
+      }
+    }
+  }
+}
+
+.logo {
+  display: flex;
+  width: 25px;
+  height: 25px;
+
+  &Wrapper {
+    display: flex;
+    align-self: center;
+
+    &:hover {
+      background-color: rgba($black, .1);
+      box-shadow: 0 0 4px 2px rgba($black, .1);
+    }
+  }
+
+  &Icon {
+    fill: $white;
+  }
+}
+
+.nav {
+  display: flex;
+  flex: 5 5;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search {
+  display: flex;
+  border: 1px solid $black;
+  border-radius: 3px;
+  flex: 5 5;
+  min-height: 25px;
+
+  &Field {
+    flex: 1 1;
+    border-radius: 3px 0 0 3px;
+    background-color: $white;
+    border-color: transparent;
+
+    &:focus {
+      outline: transparent;
+    }
+  }
+
+  &Button {
+    width: 45px;
+    border-radius: 0 3px 3px 0;
+    background-color: $lightGrey;
+    border-color: transparent;
+
+    &::before {
+      content: url("../../images/icon/magnifier.svg");
+    }
+  }
+}
+
+.list {
+  display: flex;
+  flex: 1 1;
+  align-items: center;
+  font-size: 1.2rem;
+  height: 25px;
+  margin-left: 10px;
+}
+
+.item {
+  position: relative;
+  color: $white;
+  font-weight: bold;
+  width: inherit;
+  height: inherit;
+  cursor: pointer;
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 4px;
+    height: 18px;
+    width: 1px;
+    background-color: rgba($black, .1);
+  }
+
+  &:hover, &:focus, &:active {
+    border-radius: 2px;
+    background-color: rgba($black, .1);
+    outline: none;
+
+    .link {
+      color: inherit;
+    }
+  }
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  color: $white;
+  font-weight: bold;
+  white-space: nowrap;
+  letter-spacing: .5px;
+  height: inherit;
+  padding: 0 10px;
+
+  &Profile {
+    display: flex;
+
+    &Text {
+      margin-left: 10px;
+    }
+  }
+
+  &HiddenMenu {
+    font-size: 1.5rem;
+    color: $primary;
+    padding: 10px !important;
+    position: relative;
+
+    &::after {
+      display: block;
+      content: "";
+      position: absolute;
+      background-color: rgba($black, .25);
+      bottom: 0;
+      height: 1px;
+      width: 90%;
+      margin: 0 auto;
+
+      @media screen and (min-width: 480px) {
+        width: 80%;
+      }
+    }
+
+    &Last::after {
+      display: none;
+    }
+  }
+}
+
+.menu {
+  fill: $white;
+  @include transition;
+
+  &Active {
+    fill: $darkGrey;
+    @include transition;
+  }
+}
+
+.hiddenMenu {
+  position: absolute;
+  background: $white;
+  right: 0;
+  top: 44px;
+  width: 100%;
+  z-index: 1;
+  border: 1px solid $darkGrey;
+  border-top-color: $lightBlue;
+
+  @media screen and (min-width: 480px) {
+    width: 200px;
+    top: 44px;
+  }
+}

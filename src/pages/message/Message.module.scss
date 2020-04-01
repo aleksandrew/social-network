@@ -1,0 +1,173 @@
+@import "../../style/vars";
+
+.message {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 45px;
+
+  &Block {
+    width: 700px;
+    margin-top: 15px;
+    flex-direction: row;
+  }
+}
+
+.elem {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 0;
+  position: relative;
+
+  @media screen and (min-width: 480px) {
+    flex-direction: row;
+  }
+
+  &::after {
+    display: block;
+    content: "";
+    position: absolute;
+    background-color: rgba($black, .25);
+    bottom: 0;
+    height: 1px;
+    width: 100%;
+  }
+}
+
+.elemTop {
+  display: flex;
+  justify-content: space-between;
+}
+
+.messageKeyboard {
+  &Right {
+    color: $darkGrey;
+
+    &:hover, &:focus {
+      color: rgba($black, .8);
+    }
+  }
+
+  &Left {
+    color: $darkBlue;
+
+    &:hover, &:focus {
+      color: $darkBlue;
+      text-decoration: underline;
+    }
+  }
+}
+
+.messageList {
+  display: flex;
+  flex-direction: column;
+}
+
+.messageItem {
+  position: relative;
+  @include transition;
+
+  &::after {
+    display: block;
+    content: "";
+    position: absolute;
+    background-color: rgba($black, .25);
+    bottom: 0;
+    height: 1px;
+    width: 100%;
+  }
+
+  &Unread {
+    background-color: $lightCyan;
+    @include transition;
+  }
+}
+
+.messageLink {
+  display: flex;
+  justify-content: space-between;
+}
+
+.messageImg {
+  flex: 1 1;
+}
+
+.messageDesc {
+  display: flex;
+  justify-content: space-between;
+  flex: 10 10;
+  padding: 5px 0;
+}
+
+.messageInfo {
+  display: flex;
+  flex-direction: column;
+  flex: 10 10;
+  padding-left: 10px;
+  color: $primary;
+
+  &Title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    text-overflow: ellipsis;
+  }
+
+  &Text {
+    max-width: 180px;
+    font-size: 1.2rem;
+    text-overflow: ellipsis;
+    white-space: pre-line;
+    overflow: hidden;
+
+    @media screen and (min-width: 400px) {
+      max-width: 220px;
+    }
+
+    @media screen and (min-width: 480px) {
+      max-width: 350px;
+    }
+
+    @media screen and (min-width: 776px) {
+      max-width: 550px;
+    }
+
+    &Received {
+      padding-left: 15px;
+      position: relative;
+
+      &::after {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: url("../../images/icon/receivedMessage.svg");
+        width: 10px;
+        height: 10px;
+      }
+      //background-image: url("");
+    }
+  }
+}
+
+.messageDate {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.messageMark {
+  width: 10px;
+  height: 10px;
+  background-color: transparent;
+  border: 2px solid $darkGrey;
+  border-radius: 50%;
+  @include transition;
+
+  &Unread {
+    background-color: $darkGrey;
+    @include transition;
+  }
+}

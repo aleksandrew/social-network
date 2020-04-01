@@ -1,0 +1,72 @@
+@import "../../style/vars";
+
+.inputContainerDefault {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  margin: 5px 0;
+  width: 100%;
+}
+
+.defaultLabel {
+  margin: 0;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.errorTextarea {
+  background-color: #fff;
+}
+
+.errorBlock {
+  display: block;
+  width: auto;
+  position: absolute;
+  top: -10px;
+  right: 0;
+  background-color: rgba($darkBlue, .95);
+  color: $darkRed;
+  font-size: 1.6rem;
+  letter-spacing: .5px;
+  font-weight: bold;
+  text-transform: capitalize;
+  padding: 10px 10px 10px 30px;
+  line-height: 2;
+
+  &::before {
+    display: block;
+    position: absolute;
+    left: 5px;
+    top: 15px;
+    content: url("../../images/icon/error.svg");
+    width: 22px;
+    height: 22px;
+  }
+
+  &Litle {
+    padding: 0 5px 5px 30px;
+    display: block;
+    width: auto;
+    top: 0;
+    right: 0;
+    background-color: rgba($darkBlue, .95);
+    color: $darkRed;
+    font-size: 1.2rem;
+    letter-spacing: .5px;
+    font-weight: bold;
+    text-transform: capitalize;
+    line-height: 2;
+    position: absolute;
+
+    &::before {
+      display: block;
+      position: absolute;
+      left: 5px;
+      top: 5px;
+      content: url("../../images/icon/error.svg");
+      width: 22px;
+      height: 22px;
+    }
+  }
+}

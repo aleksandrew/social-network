@@ -1,57 +1,76 @@
-import React from 'react';
-import LoginPage from './pages/login/Login';
-import HeaderContainer from "./common/navbar/NavbarContainer";
-import ProfileContainer from "./pages/profile/ProfileContainer";
-import UsersContainer from "./pages/users/UsersContainer";
+// outsource dependencies
+import { compose } from 'redux';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import React, { PureComponent } from 'react';
+import { Redirect, Route, Switch, withRouter } from 'react-router-dom';
+
+// local dependencies
 import './style/_base.scss';
-import style from "./App.module.scss";
-import {connect} from "react-redux";
-import {compose} from "redux";
-import {Route, withRouter} from "react-router-dom";
-import {initializeApp} from "./redux/app-reducer";
-import Preloader from "./components/preloader/Preloader";
+import Error from './common/error';
+import { APP } from './constans/types';
+import LoginPage from './pages/login/index';
+import { selector } from './redusers/app-reducer';
+import Preloader from './components/preloader/Preloader';
+import UsersContainer from './pages/users/UsersContainer';
+import HeaderContainer from './common/header/HeaderContainer';
+import ProfileContainer from './pages/profile/ProfileContainer';
+import SettingContainer from './pages/setting/SettingContainer';
+import MessageContainer from './pages/message/MessageContainer';
 
-class App extends React.PureComponent {
+class App extends PureComponent {
+    // it will be global error handler
+    catchAllUnhandledErrors = (promiseRejectionEvent) => {
+        console.log(promiseRejectionEvent);
+    };
 
-  componentDidMount() {
-    this.props.initializeApp();
-  }
-
-  render() {
-
-    if (!this.props.initialized) {
-      return <Preloader/>
+    componentDidMount () {
+        this.props.initializeApp();
+        window.addEventListener('unhandledrejection', this.catchAllUnhandledErrors);
     }
 
-    else if (window.location.pathname === '/login') {
-
-      return <>
-        <div className={`${style.headerBackground}`}>
-          <HeaderContainer/>
-        </div>
-        <div className={`container`}>
-          <Route path='/login' component={LoginPage}/>
-        </div>
-      </>
+    componentWillUnmount () {
+        window.removeEventListener('unhandledrejection', this.catchAllUnhandledErrors);
     }
 
-    return <>
-      <div className={`${style.headerBackground}`}>
-        <HeaderContainer/>
-      </div>
-      <div className={`container`}>
-        <Route path='/profile/:userId?' component={ProfileContainer}/>
-        <Route path='/users' component={UsersContainer} />
-      </div>
-    </>
-  };
+    render () {
+        if (!this.props.initialized) {
+            return <Preloader/>;
+        } else if (this.props.location.pathname === '/login') {
+            return <Route path="/login" component={LoginPage}/>;
+        }
+
+        return (
+            <>
+                <HeaderContainer/>
+                <Switch>
+                    <Route path="/profile/:userId?" component={ProfileContainer}/>
+                    <Route path="/users" component={UsersContainer}/>
+                    <Route path="/message" component={MessageContainer}/>
+                    <Route path="/setting" component={SettingContainer}/>
+                    <Redirect exact from="/" to="/profile"/>
+                    <Route path="/*" component={Error}/>
+                </Switch>
+            </>
+        );
+    }
 }
 
-const mapStateToProps = state => ({
-  initialized: state.app.initialized
-});
+App.propTypes = {
+    location: PropTypes.object.isRequired,
+    initialized: PropTypes.bool.isRequired,
+    initializeApp: PropTypes.func.isRequired,
+};
 
 export default compose(
-  withRouter,
-  connect(mapStateToProps, {initializeApp}),
+    connect(
+        // mapStateToProps
+        (state) => ({
+            initialized: selector(state).initialized,
+        }),
+        // mapDispatchToProps
+        (dispatch) => ({
+            initializeApp: () => dispatch({ type: APP.INITIALIZED_APP }),
+        })),
+    withRouter,
 )(App);

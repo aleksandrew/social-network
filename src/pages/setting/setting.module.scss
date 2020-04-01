@@ -1,0 +1,184 @@
+@import "../../style/vars";
+
+.setting {
+  padding: 45px 0;
+  background-color: $white;
+  height: auto;
+  @include transition;
+
+  @media screen and (min-width: 480px) {
+    @include transition;
+  }
+}
+
+.settingWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 20px;
+  @include transition;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    @include transition;
+  }
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  margin-right: 20px;
+  @include transition;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: column;
+    flex: 120px 1 1;
+    position: relative;
+    @include transition;
+
+    &::after {
+      display: block;
+      content: "";
+      position: absolute;
+      background-color: rgba($black, .25);
+      right: 0;
+      width: 1px;
+      height: 100%;
+    }
+  }
+}
+
+.navbarLink {
+  font-size: 1.2rem;
+  color: $primary;
+  cursor: pointer;
+  @include transition;
+
+  &:hover {
+    background-color: rgba($lightBlue, .1);
+    color: $primary;
+    @include transition;
+  }
+}
+
+.navbarActive {
+  color: $primary;
+  font-weight: 700;
+  background-color: rgba($lightBlue, .4);
+  border-radius: 0;
+}
+
+.settingBlock {
+  display: flex;
+  flex-direction: column;
+  flex: 200px 10 1;
+  padding-bottom: 15px;
+  position: relative;
+
+  &::after {
+    display: block;
+    content: "";
+    position: absolute;
+    background-color: rgba($black, .25);
+    bottom: 0;
+    height: 1px;
+    width: 100%;
+  }
+}
+
+.title {
+  padding-bottom: 20px;
+  position: relative;
+
+  &::after {
+    display: block;
+    content: "";
+    position: absolute;
+    background-color: rgba($black, .25);
+    bottom: 0;
+    height: 1px;
+    width: 100%;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 100px;
+  font-size: 1.3rem;
+  margin-bottom: 5px;
+  @include transition;
+
+  @media screen and (min-width: 480px) {
+    min-width: 140px;
+    margin: 0;
+    @include transition;
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: 1.5rem;
+    min-width: 200px;
+    @include transition;
+  }
+
+  &Checkbox {
+    font-weight: bold;
+    color: $primary;
+    margin: 5px 0;
+  }
+}
+
+.input {
+  font-size: 1.3rem;
+  text-overflow: ellipsis;
+  @include transition;
+
+  @media screen and (min-width: 768px) {
+    font-size: 1.5rem;
+    @include transition;
+  }
+}
+
+.fieldContainer {
+  align-items: flex-start;
+  flex-direction: column;
+  margin: 10px 0;
+  @include transition;
+
+  @media screen and (min-width: 480px) {
+    align-items: center;
+    flex-direction: row;
+    @include transition;
+  }
+}
+
+.formJob {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 14px;
+  position: relative;
+}
+
+.formContacts {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin: 10px 0;
+  padding-bottom: 15px;
+  position: relative;
+}
+
+.button {
+  padding: 10px 30px;
+  font-size: 1.5rem;
+  margin-top: 15px;
+}
