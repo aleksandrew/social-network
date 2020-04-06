@@ -42,7 +42,7 @@ const Error = memo((props) => {
                         </NavLink>
                     </NavItem>
                     <NavItem className={cx(styles.errorItem)}>
-                        <NavLink href="/#">
+                        <NavLink target="_blank" href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=andrew.alexandrow97@gmail.com&su=socialNetwork&tf=1">
                             Visit our Help Center
                         </NavLink>
                     </NavItem>

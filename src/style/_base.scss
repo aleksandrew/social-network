@@ -12,11 +12,11 @@ html {
   -webkit-overflow-scrolling: touch;
   -webkit-text-size-adjust: none;
 
-    font-size: 50%; // 8px
+  font-size: 50%; // 8px
 
-    @media screen and (min-width: 480px) {
-      font-size: 56.25%; // 9px
-    }
+  @media screen and (min-width: 480px) {
+    font-size: 56.25%; // 9px
+  }
 
   @media screen and (min-width: 768px) {
     font-size: 56.25%; // 9px

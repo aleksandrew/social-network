@@ -15,13 +15,13 @@ export const usersAPI = {
                 return response.data;
             });
     },
-    followUsers (userId = 2) {
+    followUsers (userId = 5197) {
         return instance.post(`follow/${userId}`)
             .then((response) => {
                 return response.data;
             });
     },
-    unfollowUsers (userId = 2) {
+    unfollowUsers (userId = 5197) {
         return instance.delete(`follow/${userId}`)
             .then((response) => {
                 return response.data;
@@ -30,13 +30,13 @@ export const usersAPI = {
 };
 
 export const profileAPI = {
-    viewProfile (userId = 2) {
+    viewProfile (userId = 5197) {
         return instance.get(`profile/${userId}`)
             .then((response) => {
                 return response;
             });
     },
-    getStatus (userId = 2) {
+    getStatus (userId = 5197) {
         return instance.get(`profile/status/${userId}`);
     },
     upadateStatus (status) {

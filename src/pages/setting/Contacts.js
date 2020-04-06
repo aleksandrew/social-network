@@ -22,7 +22,7 @@ const Contacts = memo((props) => {
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
             <fieldset className={cx(styles.formContacts)}>
-                <legend><h3 className={cx('d-md-inline d-none')}>Contacts</h3></legend>
+                <h3 className={cx('d-md-inline d-none')}>Contacts</h3>
                 <Field type="url"
                     component={Input}
                     label="My website"
@@ -105,14 +105,14 @@ const Contacts = memo((props) => {
 });
 
 Contacts.propTypes = {
-    userId: PropTypes.string,
-    updateData: PropTypes.bool.isRequired,
+    userId: PropTypes.number,
     submitting: PropTypes.bool.isRequired,
+    updateData: PropTypes.func.isRequired,
     handleSubmit: PropTypes.func.isRequired,
 };
 
 Contacts.defaultProps = {
-    userId: '',
+    userId: null,
 };
 
 export default connect(

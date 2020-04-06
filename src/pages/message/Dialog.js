@@ -9,6 +9,7 @@ import styles from './Message.module.scss';
 import Avatar from '../../components/avatar';
 import { currentDate } from '../../components/time';
 
+
 const Dialog = memo((props) => {
     const cx = classNames.bind(styles);
     const { messages, href, img, name, id, isMarkRead } = props;
@@ -65,12 +66,17 @@ const Dialog = memo((props) => {
 });
 
 Dialog.propTypes = {
+    img: PropTypes.string,
+    href: PropTypes.string,
     id: PropTypes.number.isRequired,
-    img: PropTypes.number.isRequired,
-    href: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     messages: PropTypes.array.isRequired,
     isMarkRead: PropTypes.func.isRequired,
+};
+
+Dialog.defaultProps = {
+    img: '',
+    href: '',
 };
 
 export default Dialog;

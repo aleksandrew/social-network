@@ -12,6 +12,12 @@ import Preloader from '../../components/preloader/Preloader';
 
 
 class UsersContainer extends PureComponent {
+    constructor (props) {
+        super(props);
+
+        this.onPageChanged = this.onPageChanged.bind(this);
+    }
+
     componentDidMount () {
         this.props.requestUsers(this.props.currentPage, this.props.pageSize);
     }
@@ -31,16 +37,10 @@ class UsersContainer extends PureComponent {
 }
 
 UsersContainer.propTypes = {
-    pageSize: PropTypes.string,
-    isFetching: PropTypes.bool,
-    currentPage: PropTypes.string,
+    pageSize: PropTypes.number.isRequired,
+    isFetching: PropTypes.bool.isRequired,
+    currentPage: PropTypes.number.isRequired,
     requestUsers: PropTypes.func.isRequired,
-};
-
-UsersContainer.defaultProps = {
-    pageSize: '',
-    currentPage: '',
-    isFetching: false,
 };
 
 export default compose(
