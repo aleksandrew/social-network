@@ -27,14 +27,18 @@ const ProfileIntro = memo((props) => {
                 </div>
             }
             <div className={cx(styles.IntroDesc, styles.IntroDescIsWork)}>
-                {
-                    lookingForAJob
-                        ? 'I\'m looking for job'
-                        : 'I\'m not looking for job now'
-                }
+                <b>
+                    {
+                        lookingForAJob
+                            ? 'I\'m looking for job'
+                            : 'I\'m not looking for job now'
+                    }
+                </b>
             </div>
             {
                 lookingForAJobDescription && <div className={cx(styles.IntroDesc, styles.IntroDescWork)}>
+                    <b>For a job description:</b>
+                    <br/>
                     {lookingForAJobDescription}
                 </div>
             }

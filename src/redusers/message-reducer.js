@@ -15,6 +15,7 @@ const initialState = {
             { date: currentDate.getDate(1), sendMessage: false, id: 4, time: '23:13:18', read: false, message: 'So you have to finish what you\'re doing!' },
         ],
         img: 'https://scontent.fhrk5-1.fna.fbcdn.net/v/t1.0-1/p240x240/79515135_10111007623880301_5111576226921709568_o.jpg?_nc_cat=1&_nc_sid=dbb9e7&_nc_ohc=TQOe9CFVSxMAX9G_tPa&_nc_ht=scontent.fhrk5-1.fna&_nc_tp=6&oh=491d0ccbb6737e19d48600b9ad80c6e9&oe=5EA8A1B3',
+        href: 'https://www.facebook.com/zuck',
         },
         { name: 'Elon Musk', id: 1, messages: [
             { date: currentDate.getDate(1), sendMessage: false, id: 1, time: '20:12:36', read: false, message: 'We have extra FDA-approved ventilators. Will ship to hospitals worldwide within Tesla delivery regions. Device & shipping cost are free. Only requirement is that the vents are needed immediately for patients, not stored in a warehouse. Please me or @Tesla know.' },
@@ -26,6 +27,7 @@ const initialState = {
         { name: 'Alexandrew', id: 6261, messages: [
             { date: currentDate.getDate(2), sendMessage: false, id: 1, time: '12:12:36', read: true, message: 'Hi' },
         ],
+        href: '/profile/5197',
         },
         { name: 'John Doe', id: 99999, messages: [
             { date: currentDate.getDate(6), sendMessage: true, id: 1, time: '12:12:36', read: true, message: 'lorem' },

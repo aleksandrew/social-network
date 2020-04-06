@@ -21,24 +21,24 @@ const Message = memo((props) => {
                 <div className={cx(styles.elem, styles.elemTop)}>
                     <Nav className={cx(styles.messageKeyboard)}>
                         <NavItem className={cx()}>
-                            <NavLink className={cx(styles.messageKeyboardRight)} active href="#">
+                            <NavLink className={cx(styles.messageKeyboardRight)} active href="/undefined">
                                 Recent
                             </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink className={cx(styles.messageKeyboardRight)} href="#">
+                            <NavLink className={cx(styles.messageKeyboardRight)} href="/undefined">
                                 Message Requests
                             </NavLink>
                         </NavItem>
                     </Nav>
                     <Nav className={cx(styles.messageKeyboard)}>
                         <NavItem className={cx()}>
-                            <NavLink className={cx(styles.messageKeyboardLeft)} href="#">
+                            <NavLink className={cx(styles.messageKeyboardLeft)} href="/undefined">
                                 New Group
                             </NavLink>
                         </NavItem>
                         <NavItem className={cx()}>
-                            <NavLink className={cx(styles.messageKeyboardLeft)} href="#">
+                            <NavLink className={cx(styles.messageKeyboardLeft)} href="/undefined">
                                 New Message
                             </NavLink>
                         </NavItem>
@@ -53,12 +53,8 @@ const Message = memo((props) => {
 });
 
 Message.propTypes = {
-    messages: PropTypes.string,
+    messages: PropTypes.array.isRequired,
     isMarkRead: PropTypes.func.isRequired,
-};
-
-Message.defaultProps = {
-    messages: '',
 };
 
 export default Message;

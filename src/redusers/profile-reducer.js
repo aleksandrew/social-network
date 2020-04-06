@@ -26,7 +26,7 @@ const initialState = {
             like: 60,
             youselfLike: false,
             post: 'Lorem ipsum dolor.',
-            date: { date: currentDate.getDate(18), time: '17:15' },
+            date: { date: currentDate.getDate(18), time: '19:70' },
         },
         { id: 2, like: 0, youselfLike: true, post: 'Lorem ipsum.', date: { date: currentDate.getDate(31), time: '17:15' } },
         { id: 1, like: 23, youselfLike: true, post: 'Lorem.', date: { date: currentDate.getDate(31), time: '17:15' } },

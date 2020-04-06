@@ -43,7 +43,7 @@ function * requestUsers ({ type, ...payload }) {
 
     try {
         yield put({ type: USERS.TOGGLE_IS_FETCHING, isFetching: true });
-        yield put({ type: USERS.SET_CURRENT_PAGE, currentPage: currentPage });
+        yield put({ type: USERS.SET_CURRENT_PAGE, currentPage });
 
         const data = yield call(getUsersRequest, currentPage, pageSize);
 

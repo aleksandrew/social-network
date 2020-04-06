@@ -9,7 +9,7 @@ const initialState = {
     email: null,
     login: null,
     isAuth: false,
-    test: { email: 'free@samuraijs.com', password: 'free', name: 'John Doe' },
+    test: { email: 'gipohir867@ismailgul.net', password: 'qwerty123456', name: 'HRinsky' },
 };
 
 export const selector = (state) => state.auth;

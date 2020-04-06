@@ -80,21 +80,15 @@ const Users = memo((props) => {
 });
 
 Users.propTypes = {
-    pageSize: PropTypes.string,
-    currentPage: PropTypes.string,
-    totalUsersCount: PropTypes.string,
     follow: PropTypes.func.isRequired,
-    users: PropTypes.object.isRequired,
+    users: PropTypes.array.isRequired,
     unfollow: PropTypes.func.isRequired,
     userRemove: PropTypes.func.isRequired,
+    pageSize: PropTypes.number.isRequired,
     onPageChanged: PropTypes.func.isRequired,
-    followingInProgress: PropTypes.func.isRequired,
-};
-
-Users.defaultProps = {
-    pageSize: '',
-    currentPage: '',
-    totalUsersCount: '',
+    currentPage: PropTypes.number.isRequired,
+    totalUsersCount: PropTypes.number.isRequired,
+    followingInProgress: PropTypes.array.isRequired,
 };
 
 export default Users;

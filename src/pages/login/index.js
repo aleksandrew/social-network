@@ -72,7 +72,11 @@ const Login = memo(() => {
                         <div>
                             <div className={cx(styles.blockForm)}>
                                 <LoginForm />
-                                <button className={cx('btn', styles.logBtn)}>Create New Account</button>
+                                <a className={cx('btn', styles.logBtn)}
+                                    href="https://social-network.samuraijs.com/signUp"
+                                >
+                                    Create New Account
+                                </a>
                             </div>
                         </div>
                     </div>

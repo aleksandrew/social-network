@@ -70,12 +70,12 @@ function * updateData ({ type, ...payload }) {
 }
 
 
-async function viewProfile (id) {
+async function viewProfile (id = 5197) {
     const response = await profileAPI.viewProfile(id);
     return response.data;
 }
 
-async function getStatusRequest (userId) {
+async function getStatusRequest (userId = 5197) {
     const response = await profileAPI.getStatus(userId);
     return await response.data;
 }
