@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/fakebook/static/css/main.0c2051b4.chunk.css",
+    "main.js": "/fakebook/static/js/main.ef061492.chunk.js",
+    "main.js.map": "/fakebook/static/js/main.ef061492.chunk.js.map",
+    "runtime-main.js": "/fakebook/static/js/runtime-main.ee9bd6ca.js",
+    "runtime-main.js.map": "/fakebook/static/js/runtime-main.ee9bd6ca.js.map",
+    "static/js/2.c58d411f.chunk.js": "/fakebook/static/js/2.c58d411f.chunk.js",
+    "static/js/2.c58d411f.chunk.js.map": "/fakebook/static/js/2.c58d411f.chunk.js.map",
+    "index.html": "/fakebook/index.html",
+    "precache-manifest.c5f8e103f05041c970369db180c41481.js": "/fakebook/precache-manifest.c5f8e103f05041c970369db180c41481.js",
+    "service-worker.js": "/fakebook/service-worker.js",
+    "static/css/main.0c2051b4.chunk.css.map": "/fakebook/static/css/main.0c2051b4.chunk.css.map",
+    "static/media/profileIntro.module.scss": "/fakebook/static/media/youtobe.85d35a21.svg",
+    "static/media/cover.jpg": "/fakebook/static/media/cover.62f8548a.jpg",
+    "static/media/profileHeader.module.scss": "/fakebook/static/media/edit.177e2796.svg",
+    "static/media/input.scss": "/fakebook/static/media/error.b5afaa0e.svg",
+    "static/media/Users.module.scss": "/fakebook/static/media/unfollow.d320efd7.svg",
+    "static/media/post.module.scss": "/fakebook/static/media/unlike.6c534373.svg",
+    "static/media/login.module.scss": "/fakebook/static/media/plus.087bcc1e.svg",
+    "static/media/header.module.scss": "/fakebook/static/media/magnifier.7aab935f.svg",
+    "static/media/Message.module.scss": "/fakebook/static/media/receivedMessage.cdda8659.svg",
+    "static/media/thumb_broken.png": "/fakebook/static/media/thumb_broken.536ed831.png",
+    "static/media/user.svg": "/fakebook/static/media/user.e397e8d2.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ee9bd6ca.js",
+    "static/js/2.c58d411f.chunk.js",
+    "static/css/main.0c2051b4.chunk.css",
+    "static/js/main.ef061492.chunk.js"
+  ]
+}
