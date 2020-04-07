@@ -78,6 +78,6 @@ export default compose(
             reviewUser: (userId) => dispatch({ type: PROFILE.USER_ID, userId }),
             getStatus: (userId) => dispatch({ type: PROFILE.GET_STATUS, userId }),
             updateStatus: (status) => dispatch({ type: PROFILE.UPDATE_STATUS, status }),
-        })
+        }),
     )
 )(ProfileContainer);
