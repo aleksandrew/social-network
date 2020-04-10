@@ -1,7 +1,8 @@
 // outsource dependencies
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
-import { Nav, NavItem, NavLink } from 'reactstrap';
+import { Nav, NavItem } from 'reactstrap';
+import { NavLink } from 'react-router-dom';
 import React, { memo, useCallback, useEffect } from 'react';
 
 // local dependencies
@@ -32,19 +33,19 @@ const Error = memo((props) => {
                 <img className={cx('mb-5', styles.errorImage)} src={thumb} alt="error page"/>
                 <Nav>
                     <NavItem className={cx(styles.errorItem)}>
-                        <NavLink onClick={prevPage}>
+                        <p onClick={prevPage}>
                             Go back to the previous page
-                        </NavLink>
+                        </p>
                     </NavItem>
                     <NavItem className={cx(styles.errorItem)}>
-                        <NavLink href="/profile">
+                        <NavLink to="/profile">
                             Go to profile
                         </NavLink>
                     </NavItem>
                     <NavItem className={cx(styles.errorItem)}>
-                        <NavLink target="_blank" href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=andrew.alexandrow97@gmail.com&su=socialNetwork&tf=1">
+                        <a rel="noopener noreferrer" target="_blank" href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=andrew.alexandrow97@gmail.com&su=socialNetwork&tf=1">
                             Visit our Help Center
-                        </NavLink>
+                        </a>
                     </NavItem>
                 </Nav>
             </div>

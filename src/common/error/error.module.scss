@@ -24,6 +24,7 @@
 }
 
 .errorItem {
+  margin: .5rem;
   color: $lightBlue;
   cursor: pointer;
   @include transition;

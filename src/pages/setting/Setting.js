@@ -1,9 +1,9 @@
 // outsource dependencies
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
+import { Nav, NavItem } from 'reactstrap';
 import React, { memo, useCallback } from 'react';
-import { Nav, NavItem, NavLink } from 'reactstrap';
-import { Redirect, Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch, NavLink } from 'react-router-dom';
 
 // local dependencies
 import General from './General';
@@ -28,16 +28,18 @@ const Setting = memo((props) => {
                     <NavItem className={cx({
                         navbarActive: isActive('/setting/general'),
                     })}>
-                        <NavLink className={cx(styles.navbarLink)}
-                            href="/setting/general">
+                        <NavLink to="/setting/general"
+                            className={cx(styles.navbarLink)}
+                        >
                             General
                         </NavLink>
                     </NavItem>
                     <NavItem className={cx({
                         navbarActive: isActive('/setting/contacts'),
                     })}>
-                        <NavLink className={cx(styles.navbarLink)}
-                            href="/setting/contacts">
+                        <NavLink to="/setting/contacts"
+                            className={cx(styles.navbarLink)}
+                        >
                             Contacts
                         </NavLink>
                     </NavItem>

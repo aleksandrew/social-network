@@ -6,6 +6,7 @@ import app from './app';
 import auth from './auth';
 import users from './users';
 import profile from './profile';
+import message from './messages';
 
 
 function * sagasRoot () {
@@ -13,6 +14,7 @@ function * sagasRoot () {
     yield fork(auth);
     yield fork(users);
     yield fork(profile);
+    yield fork(message);
 }
 
 export default sagasRoot;

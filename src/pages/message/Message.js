@@ -3,7 +3,8 @@ import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React, { memo } from 'react';
 import classNames from 'classnames/bind';
-import { Nav, NavItem, NavLink } from 'reactstrap';
+import { Nav, NavItem } from 'reactstrap';
+import { NavLink } from 'react-router-dom';
 
 // local dependencies
 import Dialog from './Dialog';
@@ -21,31 +22,35 @@ const Message = memo((props) => {
                 <div className={cx(styles.elem, styles.elemTop)}>
                     <Nav className={cx(styles.messageKeyboard)}>
                         <NavItem className={cx()}>
-                            <NavLink className={cx(styles.messageKeyboardRight)} active href="/undefined">
+                            <NavLink className={cx(styles.messageKeyboardRight)} to="/undefined">
                                 Recent
                             </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink className={cx(styles.messageKeyboardRight)} href="/undefined">
+                            <NavLink className={cx(styles.messageKeyboardRight)} to="/undefined">
                                 Message Requests
                             </NavLink>
                         </NavItem>
                     </Nav>
                     <Nav className={cx(styles.messageKeyboard)}>
                         <NavItem className={cx()}>
-                            <NavLink className={cx(styles.messageKeyboardLeft)} href="/undefined">
+                            <NavLink className={cx(styles.messageKeyboardLeft)} to="/undefined">
                                 New Group
                             </NavLink>
                         </NavItem>
                         <NavItem className={cx()}>
-                            <NavLink className={cx(styles.messageKeyboardLeft)} href="/undefined">
+                            <NavLink className={cx(styles.messageKeyboardLeft)} to="/undefined">
                                 New Message
                             </NavLink>
                         </NavItem>
                     </Nav>
                 </div>
                 <Nav className={cx(styles.messageList)}>
-                    {_.map(messages, (user) => <Dialog key={user.id} {...user} isMarkRead={isMarkRead}/>)}
+                    {
+                        _.map(messages, (user) => (
+                            <Dialog key={user.id} {...user} isMarkRead={isMarkRead}/>
+                        ))
+                    }
                 </Nav>
             </section>
         </main>
