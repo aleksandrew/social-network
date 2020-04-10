@@ -72,3 +72,12 @@ export const authAPI = {
         return instance.delete('auth/login');
     },
 };
+
+export const messagesAPI = {
+    getDialog () {
+        return instance.get('dialogs');
+    },
+    startDialog (id = 5197) {
+        return instance.put(`dialogs/${id}/messages`);
+    },
+};

@@ -42,6 +42,8 @@
 
 .messageKeyboard {
   &Right {
+    display: block;
+    padding: 5px;
     color: $darkGrey;
 
     &:hover, &:focus {
@@ -50,6 +52,8 @@
   }
 
   &Left {
+    display: block;
+    padding: 5px;
     color: $darkBlue;
 
     &:hover, &:focus {
@@ -85,6 +89,7 @@
 }
 
 .messageLink {
+  padding: 5px 10px;
   display: flex;
   justify-content: space-between;
 }

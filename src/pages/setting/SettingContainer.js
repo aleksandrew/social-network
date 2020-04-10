@@ -7,7 +7,7 @@ import Setting from './Setting';
 
 class SettingContainer extends PureComponent {
     render () {
-        if (!localStorage.getItem("primeryProfile")) {
+        if (!localStorage.getItem('primeryProfile')) {
             return <Redirect to="/login" />;
         }
 

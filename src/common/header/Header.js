@@ -1,8 +1,9 @@
 // outsource dependencies
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
+import { NavLink } from 'react-router-dom';
 import React, { useState, useCallback } from 'react';
-import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
+import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem } from 'reactstrap';
 
 // local dependencies
 import '../../style/_base.scss';
@@ -29,12 +30,12 @@ const Header = React.memo((props) => {
                     !isAuth && customAlert
                     && <div className={cx(styles.headerAlert, { [styles.headerAlertCollapsed]: !collapsed })}>
                         you were not log in.
-                        <NavLink className="d-inline pl-2" href="/login">log in?</NavLink>
+                        <NavLink className="d-inline pl-2" to="/login">log in?</NavLink>
                         <span className="cursor-pointer" onClick={() => setCustomAlert(false)}>[x]</span>
                     </div>
                 }
 
-                <NavbarBrand className={styles.logo} href="/profile">
+                <NavbarBrand className={styles.logo} to="/profile">
                     <div className={styles.logoWrapper}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                             <path className={styles.logoIcon}
@@ -49,8 +50,9 @@ const Header = React.memo((props) => {
                     </div>
                     <div className={styles.list}>
                         <NavItem className={styles.item}>
-                            <NavLink className={cx('d-sm-flex d-none', styles.link, styles.linkProfile)}
-                                href="/profile">
+                            <NavLink to="/profile"
+                                className={cx('d-sm-flex d-none', styles.link, styles.linkProfile)}
+                            >
                                 <Avatar width="24" height="24"
                                     borderRadius={true}
                                     src={photos && photos.small}
@@ -61,27 +63,32 @@ const Header = React.memo((props) => {
                             </NavLink>
                         </NavItem>
                         <NavItem className={styles.item}>
-                            <NavLink className={cx('d-sm-flex d-none', styles.link, styles.linkProfile)}
-                                href="/message">
+                            <NavLink to="/message"
+                                className={cx('d-sm-flex d-none', styles.link, styles.linkProfile)}
+                            >
                                 Message
                             </NavLink>
                         </NavItem>
                         <NavItem className={styles.item}>
-                            <NavLink className={cx('d-md-flex d-none', styles.link, styles.linkProfile)} href="/users">
+                            <NavLink to="/users"
+                                className={cx('d-md-flex d-none', styles.link, styles.linkProfile)}
+                            >
                                 Find Friends
                             </NavLink>
                         </NavItem>
                         <NavItem className={styles.item}>
-                            <NavLink className={cx('d-lg-flex d-none', styles.link, styles.linkProfile)}
-                                href="/setting">
+                            <NavLink to="/setting"
+                                className={cx('d-lg-flex d-none', styles.link, styles.linkProfile)}
+                            >
                                 Settings
                             </NavLink>
                         </NavItem>
                         <NavItem className={styles.item}>
-                            <NavLink className={cx('d-xl-flex d-none', styles.link, styles.linkProfile)}
-                                onClick={logout}>
+                            <p onClick={logout}
+                                className={cx('d-xl-flex d-none', styles.link, styles.linkProfile)}
+                            >
                                 Log Out
-                            </NavLink>
+                            </p>
                         </NavItem>
                         <NavbarToggler className={cx('d-xl-none d-flex')} onClick={toggleNavbar}>
                             <svg className={cx(styles.menu, { [styles.menuActive]: !collapsed })} width="24" height="24"
@@ -95,8 +102,9 @@ const Header = React.memo((props) => {
                 <Collapse isOpen={!collapsed} className={styles.hiddenMenu} navbar>
                     <Nav navbar>
                         <NavItem>
-                            <NavLink className={cx('d-sm-none d-flex', styles.link, styles.linkHiddenMenu)}
-                                href="/profile">
+                            <NavLink to="/profile"
+                                className={cx('d-sm-none d-flex', styles.link, styles.linkHiddenMenu)}
+                            >
                                 <Avatar width="26" height="26"
                                     borderRadius={true}
                                     src={photos && photos.small}
@@ -107,33 +115,35 @@ const Header = React.memo((props) => {
                             </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink className={cx('d-sm-none d-flex', styles.link, styles.linkHiddenMenu)}
-                                href="/message">
+                            <NavLink to="/message"
+                                className={cx('d-sm-none d-flex', styles.link, styles.linkHiddenMenu)}
+                            >
                                 Message
                             </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink className={cx('d-md-none d-flex', styles.link, styles.linkHiddenMenu)}
-                                href="/users">
+                            <NavLink to="/users"
+                                className={cx('d-md-none d-flex', styles.link, styles.linkHiddenMenu)}
+                            >
                                 Find Friends
                             </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink className={cx('d-lg-none d-flex', styles.link, styles.linkHiddenMenu)}
-                                href="/setting">
+                            <NavLink to="/setting"
+                                className={cx('d-lg-none d-flex', styles.link, styles.linkHiddenMenu)}
+                            >
                                 Settings
                             </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink
+                            <p onClick={isLogout}
                                 className={cx('d-xl-none d-flex cursor-pointer', styles.link, styles.linkHiddenMenu, styles.linkHiddenMenuLast)}
-                                onClick={isLogout}>
+                            >
                                 Log Out
-                            </NavLink>
+                            </p>
                         </NavItem>
                     </Nav>
                 </Collapse>
-
             </Navbar>
         </header>
     );

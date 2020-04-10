@@ -45,4 +45,6 @@ export const PROFILE = {
 
 export const MESSAGE = {
     SET_MARK: 'SET_MARK',
+    GET_DIALOG: 'GET_DIALOG',
+    START_DIALOG: 'START_DIALOG',
 };

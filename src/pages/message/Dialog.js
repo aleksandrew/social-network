@@ -1,7 +1,8 @@
 // outsource dependencies
 import PropTypes from 'prop-types';
+import { NavItem } from 'reactstrap';
 import classNames from 'classnames/bind';
-import { NavItem, NavLink } from 'reactstrap';
+import { NavLink } from 'react-router-dom';
 import React, { memo, useCallback } from 'react';
 
 // local dependencies
@@ -23,8 +24,9 @@ const Dialog = memo((props) => {
     return (
         <NavItem className={cx(styles.messageItem, {
             [styles.messageItemUnread]: !messages[messages.length - 1].read,
-        })}>
-            <NavLink className={cx(styles.messageLink)} href={href || '/undefined'}>
+        })}
+        >
+            <NavLink className={cx(styles.messageLink)} to={href || '/undefined'}>
                 <div className={cx(styles.messageImg)}>
                     <Avatar width="50" height="50" borderRadius={true} src={img || null}/>
                 </div>
