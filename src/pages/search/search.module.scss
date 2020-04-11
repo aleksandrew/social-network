@@ -1,0 +1,292 @@
+@import "../../style/vars";
+
+.search {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 15px;
+  padding-top: 45px;
+  @include transition;
+}
+
+.searchNav {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 30px;
+  height: 40px;
+  background-color: $white;
+  border-bottom: 1px solid rgba($black, .3);
+  @include transition;
+}
+
+.searchList {
+  width: auto;
+  height: inherit;
+  font-size: 1.4rem;
+  @include transition;
+
+  &:hover {
+    border-bottom: 3px solid rgba($darkBlue, .1);
+    @include transition;
+  }
+}
+
+.searchLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba($primary, .8);
+  font-weight: 500;
+  white-space: nowrap;
+  letter-spacing: .5px;
+  height: inherit;
+  padding: 0 10px;
+  @include transition;
+
+  &:hover {
+    color: $primary;
+    @include transition;
+  }
+}
+
+.searchActive {
+  border-bottom: 3px solid $darkBlue !important;
+  @include transition;
+
+  .searchLink {
+    color: $black;
+    font-weight: 700;
+    @include transition;
+  }
+}
+
+.searchContainer {
+  display: flex;
+  margin-top: 15px;
+}
+
+.filter {
+  width: 180px;
+  color: $primary;
+}
+
+.filterTitle {
+  color: $primary;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.type {
+  color: $black;
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+
+.typeTitle {
+  font-size: 1.2rem;
+  margin-left: -10px;
+  margin-bottom: 5px;
+}
+
+.typeBtn {
+  margin-left: -10px;
+  padding: 0 30px;
+  background-color: $darkGrey;
+  color: $primary;
+
+  &:hover {
+    background-color: rgba($darkGrey, .7);
+    color: $primary;
+  }
+}
+
+
+
+
+.userPhoto {
+  width: 100px;
+  height: 100px;
+}
+
+.PossibleAcquaintances {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 700px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  padding: 0 15px;
+  position: relative;
+}
+
+.headerTitle {
+  font-size: 1.6rem;
+  text-transform: capitalize;
+  line-height: 3;
+}
+
+.headerLink {
+  font-size: 1.2rem;
+  @include transition;
+
+  &:hover {
+    text-decoration: underline;
+    @include transition;
+  }
+}
+
+
+
+.list {
+  padding: 0 20px 10px;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 0 10px;
+
+  @media screen and (min-width: 480px) {
+    flex-direction: row;
+  }
+}
+
+.itemUnderline {
+  padding-bottom: 15px;
+  position: relative;
+
+  &::after {
+    display: block;
+    content: "";
+    position: absolute;
+    background-color: rgba($black, .25);
+    bottom: 0;
+    height: 1px;
+    width: 100%;
+  }
+}
+
+.itemBlock {
+  padding: 10px;
+}
+
+.info {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  @media screen and (min-width: 480px) {
+    justify-content: space-between;
+  }
+}
+
+.photos {
+  width: 75px;
+  height: 75px;
+}
+
+.img {
+  border-radius: 0;
+}
+
+.title {
+  align-self: flex-start;
+  padding-left: 10px;
+}
+
+.username {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: $darkBlue;
+  word-break: break-word;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.status {
+  font-size: 1.4rem;
+}
+
+.keyboard {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 10px 0;
+
+  @media screen and (min-width: 480px) {
+    padding: 0;
+  }
+
+}
+
+.button {
+  margin-right: 5px;
+  padding-left: 30px;
+  background-color: $lightBlue;
+
+  &:hover {
+    background-color: $darkBlue;
+  }
+}
+
+.follow {
+  position: relative;
+
+  &::before {
+    display: block;
+    position: absolute;
+    top: 3px;
+    left: 10px;
+    content: url("../../images/icon/follow.svg");
+    width: 15px;
+    height: 15px;
+  }
+
+  &:hover {
+    background-color: $darkBlue;
+  }
+}
+
+.remove {
+  background-color: $lightGrey1;
+  border: 1px solid $grey;
+  color: $darkGrey;
+
+  &:hover {
+    background-color: rgba($grey, .5);
+    color: $darkGrey;
+  }
+}
+
+.unfollow {
+  position: relative;
+
+  &::before {
+    display: block;
+    position: absolute;
+    top: 3px;
+    left: 10px;
+    content: url("../../images/icon/unfollow.svg");
+    width: 15px;
+    height: 15px;
+  }
+
+  &:hover {
+    background-color: $darkBlue;
+  }
+}
+
+.selectedPages {
+  background-color: $darkBlue;
+}

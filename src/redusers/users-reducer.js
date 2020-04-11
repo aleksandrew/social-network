@@ -6,6 +6,9 @@ import { USERS } from '../constans/types';
 
 const initialState = {
     users: [],
+    findingUsers: null,
+    searchString: '',
+    searchWindow: false,
     pageSize: 10,
     allUsers: [],
     currentPage: 1,
@@ -31,6 +34,13 @@ const usersReducer = (state = initialState, action) => {
 
                     return user;
                 }),
+                findingUsers: _.map(state.findingUsers, (user) => {
+                    if (user.id === userId) {
+                        return { ...user, followed: true };
+                    }
+
+                    return user;
+                }),
             };
         }
 
@@ -40,6 +50,13 @@ const usersReducer = (state = initialState, action) => {
             return {
                 ...state,
                 users: _.map(state.users, (user) => {
+                    if (user.id === userId) {
+                        return { ...user, followed: false };
+                    }
+
+                    return user;
+                }),
+                findingUsers: _.map(state.findingUsers, (user) => {
                     if (user.id === userId) {
                         return { ...user, followed: false };
                     }
@@ -64,6 +81,42 @@ const usersReducer = (state = initialState, action) => {
             return {
                 ...state,
                 users: users,
+            };
+        }
+
+        case USERS.SET_SEARCH_USERS: {
+            const { users, term } = action.payload;
+
+            return {
+                ...state,
+                searchString: term,
+                findingUsers: users,
+                searchWindow: true,
+            };
+        }
+
+        case USERS.CLEAN_SEARCH_USERS: {
+            return {
+                ...state,
+                searchString: null,
+                findingUsers: null,
+                searchWindow: false,
+            };
+        }
+
+        case USERS.CLOSE_SEARCH_WINDOW: {
+            return {
+                ...state,
+                searchWindow: false,
+            };
+        }
+
+        case USERS.UPDATE_SEARCH_USERS: {
+            const { users } = action;
+
+            return {
+                ...state,
+                findingUsers: users,
             };
         }
 

@@ -15,6 +15,12 @@ export const usersAPI = {
                 return response.data;
             });
     },
+    searchUsers (term = null) {
+        return instance.get(`users?count=100&term=${term}`)
+            .then((response) => {
+                return response.data;
+            });
+    },
     followUsers (userId = 5197) {
         return instance.post(`follow/${userId}`)
             .then((response) => {

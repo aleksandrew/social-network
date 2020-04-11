@@ -11,7 +11,7 @@ import styles from './input.scss';
 const Input = memo((props) => {
     const cx = classNames.bind(styles);
     const { classNameLabel, classNameInput, classNameContainer,
-        input, label, disabled, type, meta: { touched, error } } = props;
+        input, placeholder, label, disabled, type, meta: { touched, error } } = props;
 
     const hasError = touched && error;
 
@@ -31,6 +31,7 @@ const Input = memo((props) => {
                 type={type}
                 id={input.name}
                 disabled={disabled}
+                placeholder={placeholder}
                 {...input}
                 className={cx(classNameInput, {
                     errorTextarea: hasError,
@@ -46,6 +47,7 @@ Input.propTypes = {
     attr: PropTypes.object,
     label: PropTypes.string,
     disabled: PropTypes.bool,
+    placeholder: PropTypes.string,
     classNameLabel: PropTypes.string,
     classNameInput: PropTypes.string,
     classNameContainer: PropTypes.string,
@@ -58,6 +60,7 @@ Input.defaultProps = {
     attr: {},
     label: '',
     disabled: false,
+    placeholder: '',
     classNameLabel: '',
     classNameInput: '',
     classNameContainer: '',
