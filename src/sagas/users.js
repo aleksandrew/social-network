@@ -57,6 +57,20 @@ function * requestUsers ({ type, ...payload }) {
     }
 }
 
+function * searchUsers ({ type, ...payload }) {
+    const { term } = payload;
+
+    try {
+        const data = yield call(searchUsersRequest, term);
+
+        if (data) {
+            yield put({ type: USERS.SET_SEARCH_USERS, payload: { users: data.items, term } });
+        }
+    } catch (e) {
+        console.log(e);
+    }
+}
+
 function * setAllUsers ({ type, ...payload }) {
     try {
         yield put({ type: USERS.TOGGLE_IS_FETCHING, isFetching: true });
@@ -96,9 +110,16 @@ async function getUsersRequest (currentPage, pageSize) {
     return await response;
 }
 
+async function searchUsersRequest (term) {
+    const response = await usersAPI.searchUsers(term);
+
+    return await response;
+}
+
 export default function * () {
     yield takeEvery(USERS.FOLLOW, follow);
     yield takeEvery(USERS.UNFOLLOW, unfollow);
+    yield takeEvery(USERS.SEARCH_USERS, searchUsers);
     yield takeEvery(USERS.SET_ALL_USERS, setAllUsers);
     yield takeEvery(USERS.REQUEST_USERS, requestUsers);
 }

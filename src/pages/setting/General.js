@@ -59,7 +59,8 @@ const General = memo((props) => {
                     classNameContainer={cx(styles.fieldContainer)}
                 />
                 <button className={cx('btn', styles.button)}
-                    type="submit" disabled={submitting}>
+                    type="submit" disabled={submitting}
+                >
                     Update data
                 </button>
             </fieldset>

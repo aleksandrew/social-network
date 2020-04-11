@@ -1,5 +1,5 @@
 // outsource dependencies
-import { takeEvery, put, call } from 'redux-saga/effects';
+import { takeEvery, call } from 'redux-saga/effects';
 
 // local dependencies
 import { MESSAGE } from '../constans/types';
@@ -8,7 +8,7 @@ import { messagesAPI } from '../services/api';
 
 function * getDialog ({ type, ...payload }) {
     try {
-        const result = yield call(getDialogRequest);
+        yield call(getDialogRequest);
     } catch (e) {
         console.log(e);
     }
@@ -18,7 +18,7 @@ function * startDialog ({ type, ...payload }) {
     const { id } = payload;
 
     try {
-        const result = yield call(startDialogRequest, id);
+        yield call(startDialogRequest, id);
     } catch (e) {
         console.log(e);
     }
@@ -26,16 +26,14 @@ function * startDialog ({ type, ...payload }) {
 
 async function getDialogRequest () {
     const response = await messagesAPI.getDialog();
-    console.log(response);
 
-    // return await response;
+    return await response;
 }
 
 async function startDialogRequest (id) {
     const response = await messagesAPI.startDialog(id);
-    console.log(response);
 
-    // return await response;
+    return await response;
 }
 
 export default function * () {

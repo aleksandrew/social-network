@@ -1,11 +1,12 @@
 // outsource dependencies
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
-import { NavLink } from 'react-router-dom';
-import React, { useState, useCallback } from 'react';
+import { NavLink, useHistory } from 'react-router-dom';
+import React, { useState, useCallback, useEffect } from 'react';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem } from 'reactstrap';
 
 // local dependencies
+import Search from './Search';
 import '../../style/_base.scss';
 import styles from './header.module.scss';
 import Avatar from '../../components/avatar';
@@ -13,7 +14,13 @@ import Avatar from '../../components/avatar';
 
 const Header = React.memo((props) => {
     const cx = classNames.bind(styles);
-    const { logout, photos, isAuth } = props;
+    const {
+        logout, photos, searchUsers,
+        findingUsers, cleanSearchUsers, isAuth,
+        cleanInputForm, searchString, closeWindow, searchWindow,
+    } = props;
+
+    const history = useHistory();
     const [collapsed, setCollapsed] = useState(true);
     const [customAlert, setCustomAlert] = useState(true);
 
@@ -23,6 +30,15 @@ const Header = React.memo((props) => {
         setCollapsed(true);
     }, [logout, setCollapsed]);
 
+    const closeSearchWindow = useCallback(() => {
+        cleanInputForm();
+        cleanSearchUsers();
+    }, [cleanSearchUsers, cleanInputForm]);
+
+    useEffect(() => {
+        history.location.pathname.includes('/search') && closeWindow();
+    }, [closeWindow, history, findingUsers]);
+
     return (
         <header className={styles.headerContainer}>
             <Navbar className={cx(styles.header)}>
@@ -30,7 +46,9 @@ const Header = React.memo((props) => {
                     !isAuth && customAlert
                     && <div className={cx(styles.headerAlert, { [styles.headerAlertCollapsed]: !collapsed })}>
                         you were not log in.
-                        <NavLink className="d-inline pl-2" to="/login">log in?</NavLink>
+                        <NavLink className="d-
+
+                        onClick=closeSearchWindowinline pl-2" to="/login">log in?</NavLink>
                         <span className="cursor-pointer" onClick={() => setCustomAlert(false)}>[x]</span>
                     </div>
                 }
@@ -44,13 +62,17 @@ const Header = React.memo((props) => {
                     </div>
                 </NavbarBrand>
                 <Nav className={styles.nav}>
-                    <div className={styles.search}>
-                        <input className={styles.searchField}/>
-                        <button className={styles.searchButton}/>
-                    </div>
+                    <Search closeWindow={closeWindow}
+                        searchUsers={searchUsers}
+                        searchWindow={searchWindow}
+                        searchString={searchString}
+                        findingUsers={findingUsers}
+                        closeSearchWindow={closeSearchWindow}
+                    />
                     <div className={styles.list}>
                         <NavItem className={styles.item}>
                             <NavLink to="/profile"
+                                onClick={closeSearchWindow}
                                 className={cx('d-sm-flex d-none', styles.link, styles.linkProfile)}
                             >
                                 <Avatar width="24" height="24"
@@ -64,6 +86,7 @@ const Header = React.memo((props) => {
                         </NavItem>
                         <NavItem className={styles.item}>
                             <NavLink to="/message"
+                                onClick={closeSearchWindow}
                                 className={cx('d-sm-flex d-none', styles.link, styles.linkProfile)}
                             >
                                 Message
@@ -71,6 +94,7 @@ const Header = React.memo((props) => {
                         </NavItem>
                         <NavItem className={styles.item}>
                             <NavLink to="/users"
+                                onClick={closeSearchWindow}
                                 className={cx('d-md-flex d-none', styles.link, styles.linkProfile)}
                             >
                                 Find Friends
@@ -78,6 +102,7 @@ const Header = React.memo((props) => {
                         </NavItem>
                         <NavItem className={styles.item}>
                             <NavLink to="/setting"
+                                onClick={closeSearchWindow}
                                 className={cx('d-lg-flex d-none', styles.link, styles.linkProfile)}
                             >
                                 Settings
@@ -103,6 +128,7 @@ const Header = React.memo((props) => {
                     <Nav navbar>
                         <NavItem>
                             <NavLink to="/profile"
+                                onClick={closeSearchWindow}
                                 className={cx('d-sm-none d-flex', styles.link, styles.linkHiddenMenu)}
                             >
                                 <Avatar width="26" height="26"
@@ -116,6 +142,7 @@ const Header = React.memo((props) => {
                         </NavItem>
                         <NavItem>
                             <NavLink to="/message"
+                                onClick={closeSearchWindow}
                                 className={cx('d-sm-none d-flex', styles.link, styles.linkHiddenMenu)}
                             >
                                 Message
@@ -123,6 +150,7 @@ const Header = React.memo((props) => {
                         </NavItem>
                         <NavItem>
                             <NavLink to="/users"
+                                onClick={closeSearchWindow}
                                 className={cx('d-md-none d-flex', styles.link, styles.linkHiddenMenu)}
                             >
                                 Find Friends
@@ -130,6 +158,7 @@ const Header = React.memo((props) => {
                         </NavItem>
                         <NavItem>
                             <NavLink to="/setting"
+                                onClick={closeSearchWindow}
                                 className={cx('d-lg-none d-flex', styles.link, styles.linkHiddenMenu)}
                             >
                                 Settings
@@ -151,12 +180,21 @@ const Header = React.memo((props) => {
 
 Header.propTypes = {
     photos: PropTypes.object,
+    findingUsers: PropTypes.array,
+    searchString: PropTypes.string,
     logout: PropTypes.func.isRequired,
     isAuth: PropTypes.bool.isRequired,
+    searchUsers: PropTypes.func.isRequired,
+    closeWindow: PropTypes.func.isRequired,
+    searchWindow: PropTypes.bool.isRequired,
+    cleanInputForm: PropTypes.func.isRequired,
+    cleanSearchUsers: PropTypes.func.isRequired,
 };
 
 Header.defaultProps = {
     photos: {},
+    searchString: '',
+    findingUsers: null,
 };
 
 export default Header;

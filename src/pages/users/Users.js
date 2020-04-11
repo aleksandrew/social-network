@@ -51,7 +51,7 @@ const Users = memo((props) => {
                                         className={cx('btn', styles.Button, styles.Unfollow)}
                                         disabled={_.some(followingInProgress, (id) => id === user.id)}
                                     >
-                                        Remove Friend
+                                        Unfreind
                                     </button>
                                     : <button onClick={() => follow(user.id)}
                                         className={cx('btn', styles.Button, styles.Follow)}

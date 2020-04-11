@@ -85,24 +85,36 @@
 
 .search {
   display: flex;
+  position: relative;
   border: 1px solid $black;
   border-radius: 3px;
   flex: 5 5;
-  min-height: 25px;
+  height: 27px;
 
-  &Field {
+  &Input {
     flex: 1 1;
+    height: 25px;
     border-radius: 3px 0 0 3px;
     background-color: $white;
-    border-color: transparent;
+    border: none;
 
     &:focus {
       outline: transparent;
+      border-color: transparent;
+      box-shadow: none;
     }
+  }
+
+  &Container {
+    flex: 1 1;
+    height: 25px;
+    border-radius: 3px 0 0 3px;
+    border-color: transparent;
   }
 
   &Button {
     width: 45px;
+    height: 25px;
     border-radius: 0 3px 3px 0;
     background-color: $lightGrey;
     border-color: transparent;
@@ -220,5 +232,65 @@
   @media screen and (min-width: 480px) {
     width: 200px;
     top: 44px;
+  }
+}
+
+.findingContainer {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 30px;
+  right: -10rem;
+  background: $white;
+  width: 180%;
+  border: 1px solid $darkGrey;
+  border-radius: 3px;
+  z-index: 1;
+
+  @media screen and (min-width: 350px) {
+    right: -5rem;
+    width: 135%;
+  }
+
+  @media screen and (min-width: 480px) {
+    right: 0;
+    width: 100%;
+  }
+}
+
+.findingContainerClose {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  font-weight: bold;
+  font-size: 1.3rem;
+  width: 20px;
+  height: 20px;
+}
+
+.findingUsers {
+  color: $primary;
+  font-weight: 600;
+  font-size: 1.2rem;
+  text-align: left;
+  padding: 10px 5px;
+  cursor: pointer;
+  @include transition;
+
+  &:last-child {
+    color: $lightBlue;
+  }
+
+  &:hover {
+    color: $primary;
+    background-color: rgba($lightBlue, .4);
+    @include transition;
+
+    &:last-child {
+      color: $lightBlue;
+    }
   }
 }

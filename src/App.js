@@ -11,6 +11,7 @@ import Error from './common/error';
 import { APP } from './constans/types';
 import LoginPage from './pages/login/index';
 import { selector } from './redusers/app-reducer';
+import Index from './pages/search/index';
 import Preloader from './components/preloader/Preloader';
 import UsersContainer from './pages/users/UsersContainer';
 import HeaderContainer from './common/header/HeaderContainer';
@@ -44,10 +45,11 @@ class App extends PureComponent {
             <>
                 <HeaderContainer/>
                 <Switch>
-                    <Route path="/profile/:userId?" component={ProfileContainer}/>
+                    <Route path="/search" component={Index}/>
                     <Route path="/users" component={UsersContainer}/>
                     <Route path="/message" component={MessageContainer}/>
                     <Route path="/setting" component={SettingContainer}/>
+                    <Route path="/profile/:userId?" component={ProfileContainer}/>
                     <Redirect exact from="/" to="/profile"/>
                     <Route path="/*" component={Error}/>
                 </Switch>
