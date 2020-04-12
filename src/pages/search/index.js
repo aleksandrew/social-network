@@ -19,6 +19,7 @@ const Search = memo((props) => {
     const cx = classNames.bind(styles);
     const { location } = props;
 
+    // state
     const { findingUsers, searchString } = useSelector((state) => selector(state));
 
     useEffect(() => {
@@ -53,7 +54,7 @@ const Search = memo((props) => {
             </Nav>
             <div className={cx('container', styles.searchContainer)}>
                 <section className={styles.filter}>
-                    <SearchFilter />
+                    <SearchFilter/>
                 </section>
                 <Switch>
                     <Route path="/search/all" component={All}/>

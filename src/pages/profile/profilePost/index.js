@@ -12,8 +12,7 @@ import { selector } from '../../../redusers/profile-reducer';
 
 const ProfilePost = memo(() => {
     // state
-    const profile = useSelector((state) => selector(state).profile);
-    const postData = useSelector((state) => selector(state).postData);
+    const { postData, profile } = useSelector((state) => selector(state));
 
     // dispatch
     const dispatch = useDispatch();

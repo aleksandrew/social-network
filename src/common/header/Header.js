@@ -46,9 +46,7 @@ const Header = React.memo((props) => {
                     !isAuth && customAlert
                     && <div className={cx(styles.headerAlert, { [styles.headerAlertCollapsed]: !collapsed })}>
                         you were not log in.
-                        <NavLink className="d-
-
-                        onClick=closeSearchWindowinline pl-2" to="/login">log in?</NavLink>
+                        <NavLink className="d-inline pl-2" to="/login">log in?</NavLink>
                         <span className="cursor-pointer" onClick={() => setCustomAlert(false)}>[x]</span>
                     </div>
                 }

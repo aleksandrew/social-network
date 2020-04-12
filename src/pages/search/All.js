@@ -15,11 +15,14 @@ import { selector } from '../../redusers/users-reducer';
 const All = memo(() => {
     const cx = classNames.bind(styles);
 
+    // state
+    const { followingInProgress, findingUsers } = useSelector((state) => selector(state));
+
+    // dispatch
     const dispatch = useDispatch();
     const follow = useCallback((userId) => dispatch({ type: USERS.FOLLOW, userId }), [dispatch]);
     const unfollow = useCallback((userId) => dispatch({ type: USERS.UNFOLLOW, userId }), [dispatch]);
 
-    const { followingInProgress, findingUsers } = useSelector((state) => selector(state));
 
     return (
         <section className={cx('block', styles.PossibleAcquaintances)}>
@@ -73,6 +76,9 @@ const All = memo(() => {
                             </div>
                         </li>
                     ))
+                )}
+                {!findingUsers && (
+                    <p className="text-center display-4"> Please use the search string</p>
                 )}
             </ul>
         </section>

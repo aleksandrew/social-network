@@ -65,18 +65,65 @@
 
 .searchContainer {
   display: flex;
+  flex-direction: column;
   margin-top: 15px;
+  @include transition;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    @include transition;
+  }
 }
 
 .filter {
-  width: 180px;
+  width: auto;
   color: $primary;
+  margin-bottom: 20px;
+  @include transition;
+
+  @media screen and (min-width: 768px) {
+    width: 180px;
+    margin-bottom: 0;
+    @include transition;
+  }
+}
+
+.form {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+    align-items: center;
+  position: relative;
+  @include transition;
+
+  @media screen and (min-width: 768px) {
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    @include transition;
+  }
 }
 
 .filterTitle {
   color: $primary;
   font-size: 1.8rem;
-  margin-bottom: 20px;
+  margin-bottom: 0;
+  @include transition;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 20px;
+    @include transition;
+  }
+}
+
+.filterBlock {
+  display: none;
+  @include transition;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    @include transition;
+  }
 }
 
 .type {
@@ -96,15 +143,66 @@
   padding: 0 30px;
   background-color: $darkGrey;
   color: $primary;
+  @include transition;
 
   &:hover {
     background-color: rgba($darkGrey, .7);
     color: $primary;
+    @include transition;
   }
 }
 
+.menu {
+  display: block;
+  fill: $primary;
+  @include transition;
 
+  @media screen and (min-width: 768px) {
+    display: none;
+    width: 700px;
+    @include transition;
+  }
+}
 
+.hiddenMenu {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  top: 42px;
+  right: 0;
+  width: 100%;
+  background-color: $white;
+  z-index: 1;
+  border: 1px solid $darkGrey;
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    right: 2%;
+    margin-left: 0;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent $darkGrey transparent;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 99%;
+    right: 2%;
+    margin-left: 0;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent $white transparent;
+  }
+}
+
+.hiddenMenuAnnimation {
+  display: none;
+}
 
 .userPhoto {
   width: 100px;
@@ -115,7 +213,13 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  width: 700px;
+  width: auto;
+  @include transition;
+
+  @media screen and (min-width: 768px) {
+    width: 700px;
+    @include transition;
+  }
 }
 
 .header {
@@ -143,8 +247,6 @@
   }
 }
 
-
-
 .list {
   padding: 0 20px 10px;
 }
@@ -154,9 +256,11 @@
   flex-direction: column;
   justify-content: space-between;
   margin: 0 0 10px;
+  @include transition;
 
   @media screen and (min-width: 480px) {
     flex-direction: row;
+    @include transition;
   }
 }
 
@@ -183,9 +287,11 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  @include transition;
 
   @media screen and (min-width: 480px) {
     justify-content: space-between;
+    @include transition;
   }
 }
 
