@@ -19,6 +19,7 @@ const All = memo(() => {
     const follow = useCallback((userId) => dispatch({ type: USERS.FOLLOW, userId }), [dispatch]);
     const unfollow = useCallback((userId) => dispatch({ type: USERS.UNFOLLOW, userId }), [dispatch]);
 
+    // state
     const { followingInProgress, findingUsers } = useSelector((state) => selector(state));
 
     return (
