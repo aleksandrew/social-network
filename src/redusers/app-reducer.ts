@@ -3,7 +3,13 @@
 // local dependencies
 import { APP } from '../constans/types';
 
-const initialState = {
+
+type initialStateType = {
+    initialized: boolean,
+    errorMessages: null | string,
+};
+
+const initialState: initialStateType = {
     initialized: false,
     errorMessages: null,
 };
